@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Produits;
+use App\Entity\Files;
 use App\Form\ProduitsType;
 use App\Repository\ProduitsRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
