@@ -41,7 +41,7 @@ class ProduitsController extends AbstractController
                     $this->getParameter('videos_directory'),
                     $fichier
                 );
-                $produitsRepository->add($produit, true);
+
                 // Je stocke le document dans la BDD (nom du fichier)
                 $file= new Files();
                 $file->setPath($fichier);
@@ -50,7 +50,7 @@ class ProduitsController extends AbstractController
                 $filesRepository->add($file, true);
             }
 
-          
+            $produitsRepository->add($produit, true);
    
             return $this->redirectToRoute('app_produits_index', [], Response::HTTP_SEE_OTHER);
         }
