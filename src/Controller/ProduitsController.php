@@ -27,9 +27,9 @@ class ProduitsController extends AbstractController
         $produit = new Produits();
         $form = $this->createForm(ProduitsType::class, $produit);
         $form->handleRequest($request);
-        $files = $form->get('files')->getData();
+      
         if ($form->isSubmitted() && $form->isValid()) {
-
+            $files = $form->get('files')->getData();
             foreach($files as $file){
                 // Je génère un nouveau nom de fichier
                 $fichier = md5(uniqid()) . '.' . $file->guessExtension();
