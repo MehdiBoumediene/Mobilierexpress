@@ -32,6 +32,8 @@ class ProduitsController extends AbstractController
       
         if ($form->isSubmitted() && $form->isValid()) {
             $files = $form->get('files')->getData();
+
+            $produitsRepository->add($produit, true);
             foreach($files as $file){
                 // Je génère un nouveau nom de fichier
                 $fichier = md5(uniqid()) . '.' . $file->guessExtension();
@@ -45,14 +47,15 @@ class ProduitsController extends AbstractController
                 // Je stocke le document dans la BDD (nom du fichier)
                 $file= new Files();
                 $file->setPath($fichier);
-                $file->setProduit(20);
-                $produit->addFile($file);
+                $file->setProduit($produit);
+                $filesRepository->add($file, true);
+                
             
-              
+               
             }
          
-            $filesRepository->add($file, true);
-            $produitsRepository->add($produit, true);
+         
+            
          
             return $this->redirectToRoute('app_produits_index', [], Response::HTTP_SEE_OTHER);
         }
