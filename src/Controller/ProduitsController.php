@@ -27,8 +27,26 @@ class ProduitsController extends AbstractController
         $produit = new Produits();
         $form = $this->createForm(ProduitsType::class, $produit);
         $form->handleRequest($request);
-
+        $files = $form->get('files')->getData();
         if ($form->isSubmitted() && $form->isValid()) {
+
+            foreach($files as $file){
+                // Je génère un nouveau nom de fichier
+                $fichier = md5(uniqid()) . '.' . $file->guessExtension();
+
+                // Je copie le fichier dans le dossier uploads
+                $file->move(
+                    $this->getParameter('videos_directory'),
+                    $fichier
+                );
+
+                // Je stocke le document dans la BDD (nom du fichier)
+                $file= new Files();
+                $file->setPath($fichier);
+                $produit->setFile($file);
+
+            }
+
             $produitsRepository->add($produit, true);
 
             return $this->redirectToRoute('app_produits_index', [], Response::HTTP_SEE_OTHER);
