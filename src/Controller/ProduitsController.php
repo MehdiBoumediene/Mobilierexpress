@@ -34,6 +34,7 @@ class ProduitsController extends AbstractController
             $files = $form->get('files')->getData();
 
             $produitsRepository->add($produit, true);
+
             foreach($files as $file){
                 // Je génère un nouveau nom de fichier
                 $fichier = md5(uniqid()) . '.' . $file->guessExtension();
@@ -49,8 +50,7 @@ class ProduitsController extends AbstractController
                 $file->setPath($fichier);
                 $file->setProduit($produit);
                 $filesRepository->add($file, true);
-                
-            
+
                
             }
          
