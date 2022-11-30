@@ -49,7 +49,8 @@ class ProduitsController extends AbstractController
             
               
             }
-
+            $file->setProduit($produit);
+            $filesRepository->add($file, true);
             $produitsRepository->add($produit, true);
          
             return $this->redirectToRoute('app_produits_index', [], Response::HTTP_SEE_OTHER);
