@@ -6,6 +6,7 @@ use App\Entity\Produits;
 use App\Entity\Files;
 use App\Form\ProduitsType;
 use App\Repository\ProduitsRepository;
+use App\Repository\FilesRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -23,7 +24,7 @@ class ProduitsController extends AbstractController
     }
 
     #[Route('/new', name: 'app_produits_new', methods: ['GET', 'POST'])]
-    public function new(Request $request, ProduitsRepository $produitsRepository): Response
+    public function new(Request $request, ProduitsRepository $produitsRepository, FilesRepository $filesRepository): Response
     {
         $produit = new Produits();
         $form = $this->createForm(ProduitsType::class, $produit);
@@ -49,7 +50,7 @@ class ProduitsController extends AbstractController
             }
 
             $produitsRepository->add($produit, true);
-
+            $filesRepository->add($file, true);
             return $this->redirectToRoute('app_produits_index', [], Response::HTTP_SEE_OTHER);
         }
 
