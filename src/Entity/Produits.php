@@ -29,7 +29,7 @@ class Produits
     #[ORM\ManyToOne(targetEntity: Categories::class, inversedBy: 'produits')]
     private $categorie;
 
-    #[ORM\OneToMany(mappedBy: 'produit', targetEntity: Files::class)]
+    #[ORM\OneToMany(mappedBy: 'produit', targetEntity: Files::class,cascade:'all')]
     private $files;
 
     public function __construct()
