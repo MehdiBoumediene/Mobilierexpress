@@ -18,7 +18,9 @@ class Files
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
     private $path;
 
-    #[ORM\ManyToOne(targetEntity: Produits::class, inversedBy: 'files')]
+    /**
+     * @ORM\ManyToOne(targetEntity=Produits::class, inversedBy="files")
+     */
     private $produit;
 
     public function getId(): ?int
