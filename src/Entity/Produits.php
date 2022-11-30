@@ -31,7 +31,7 @@ class Produits
 
 
        /**
-     * @ORM\OneToMany(targetEntity=Files::class, mappedBy="produit", cascade={"all"})
+     * @ORM\OneToMany(targetEntity=Files::class, mappedBy="produit", cascade={"persist"})
      */
     private $files;
 
