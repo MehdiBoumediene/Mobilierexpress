@@ -45,9 +45,10 @@ class ProduitsController extends AbstractController
                 // Je stocke le document dans la BDD (nom du fichier)
                 $file= new Files();
                 $file->setPath($fichier);
-                $file->setProduit($produit);
+           
                
             }
+            $file->setProduit($produit);
             $produit->addFile($file);
             $produitsRepository->add($produit, true);
             
