@@ -663,7 +663,7 @@
                             </div>
                             <div class="figure-grid">
                                 <div class="image">
-                                    <a href="#productid1" class="mfp-open">
+                                    <a href="#productid{{produit.id}}" class="mfp-open">
                                     {% if produit.files %}
                                         <img src="{{ asset('/uploads/' ~ produit.files[0].path)}}" alt="" width="360" />
                                     {% endif %}
