@@ -11,15 +11,14 @@
 
         <!-- ========================  Main header ======================== -->
 
-        <section class="main-header" style="background-image:url(assets/images/gallery-2.jpg)">
+        <section class="main-header" style="background-image:url({{ asset('/uploads/' ~ produit.files[0].path)}})">
             <header>
                 <div class="container">
-                    <h1 class="h2 title">Sofa Laura</h1>
+                    <h1 class="h2 title">{{produit.nom}}</h1>
                     <ol class="breadcrumb breadcrumb-inverted">
-                        <li><a href="index-2.html"><span class="icon icon-home"></span></a></li>
-                        <li><a href="category.html">Product Category</a></li>
-                        <li><a href="products-grid.html">Product Sub-category</a></li>
-                        <li><a class="active" href="product.html">Product overview</a></li>
+                        <li><a href="{{path('app_index')}}"><span class="icon icon-home"></span></a></li>
+                        <li><a href="">{{produit.categorie.nom}}</a></li>
+                        <li><a class="active" href="{{ path('app_produit_details', {'id': produit.id}) }}">{{produit.nom}}</a></li>
                     </ol>
                 </div>
             </header>
@@ -40,7 +39,7 @@
 
                                 <!-- === product-title === -->
 
-                                <h1 class="title" data-title="Sofa">Laura <small>La Linea de Lucco</small></h1>
+                                <h1 class="title" data-title="Sofa">{{produit.nom}} <small>{{ produit.categorie.nom }}</small></h1>
 
                                 <div class="clearfix">
 
@@ -48,8 +47,8 @@
 
                                     <div class="price">
                                         <span class="h3">
-                                            $ 1999,00
-                                            <small>$ 2999,00</small>
+                                            {{produit.prix}}
+                                        
                                         </span>
                                     </div>
                                     <hr />
