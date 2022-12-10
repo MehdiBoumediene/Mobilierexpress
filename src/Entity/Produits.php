@@ -32,9 +32,8 @@ class Produits
 
    
     
-      /**
-     * @ORM\OneToMany(targetEntity=Files::class, mappedBy="produit", cascade={"all"})
-     */
+  
+    #[ORM\OneToMany(mappedBy: 'produit', targetEntity: Files::class, cascade: ['all'])]
     private $files;
 
     public function __construct()
