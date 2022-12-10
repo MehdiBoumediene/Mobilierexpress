@@ -46,13 +46,8 @@ class ProduitsController extends AbstractController
                 $file= new Files();
                 $file->setPath($fichier);
                 $file->setProduit($produit);
-                $produit->addFile($file);
-                $file->setProduit($produit);
-              
             }
          
-        
-
             $produitsRepository->add($produit, true);
             $filesRepository->add($file, true);
          
