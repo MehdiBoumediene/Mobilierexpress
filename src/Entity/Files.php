@@ -21,6 +21,7 @@ class Files
     /**
      * @ORM\ManyToOne(targetEntity=Produits::class, inversedBy="files")
      */
+    #[ORM\ManyToOne(inversedBy: 'files', targetEntity: Produits::class, cascade: ['all'])]
     private $produit;
 
     public function getId(): ?int
