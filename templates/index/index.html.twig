@@ -319,7 +319,7 @@
                                         <!--cart item-->
             
                                         <div class="row">
-                                            {%  for produit in produits %}
+                                       
                                             <div class="cart-block cart-block-item clearfix">
                                                 <div class="image">
                                                     <a href="product.html"><img src="assets/images/product-1.png" alt=""></a>
@@ -338,7 +338,7 @@
                                                 <!--delete-this-item-->
                                                 <span class="icon icon-cross icon-delete"></span>
                                             </div>
-                                            {% endfor %}
+                                          
                                             <!--cart item-->
             
             
@@ -663,7 +663,7 @@
                 <div class="row">
 
                     <!-- === product-item === -->
-
+     {%  for produit in produits %}
                     <div class="col-md-4 col-xs-6">
 
                         <article>
@@ -685,138 +685,16 @@
                                     </a>
                                 </div>
                                 <div class="text">
-                                    <h2 class="title h4"><a href="product.html">Green corner</a></h2>
-                                    <sub>$ 1499,-</sub>
+                                    <h2 class="title h4"><a href="product.html">{{produit.nom}}</a></h2>
+                                    <sub>{{ produit.categorie.nom }}</sub>
                                     <sup>$ 1099,-</sup>
-                                    <span class="description clearfix">Gubergren amet dolor ea diam takimata consetetur facilisis blandit et aliquyam lorem ea duo labore diam sit et consetetur nulla</span>
+                                    <span class="description clearfix">{{produit.description}}</span>
                                 </div>
                             </div>
                         </article>
                     </div>
-
-                    <!-- === product-item === -->
-
-                    <div class="col-md-4 col-xs-6">
-                        <article>
-                            <div class="info">
-                                <span class="add-favorite">
-                                    <a href="javascript:void(0);" data-title="Add to favorites" data-title-added="Added to favorites list"><i class="icon icon-heart"></i></a>
-                                </span>
-                                <span>
-                                    <a href="#productid1" class="mfp-open" data-title="Quick wiew"><i class="icon icon-eye"></i></a>
-                                </span>
-                            </div>
-                            <div class="btn btn-add">
-                                <i class="icon icon-cart"></i>
-                            </div>
-                            <div class="figure-grid">
-                                <div class="image">
-                                    <a href="#productid1" class="mfp-open">
-                                        <img src="assets/images/product-2.png" alt="" width="360" />
-                                    </a>
-                                </div>
-                                <div class="text">
-                                    <h2 class="title h4"><a href="product.html">Laura</a></h2>
-                                    <sub>$ 3999,-</sub>
-                                    <sup>$ 3499,-</sup>
-                                    <span class="description clearfix">Gubergren amet dolor ea diam takimata consetetur facilisis blandit et aliquyam lorem ea duo labore diam sit et consetetur nulla</span>
-                                </div>
-                            </div>
-                        </article>
-                    </div>
-
-                    <!-- === product-item === -->
-
-                    <div class="col-md-4 col-xs-6">
-                        <article>
-                            <div class="info">
-                                <span class="add-favorite">
-                                    <a href="javascript:void(0);" data-title="Add to favorites" data-title-added="Added to favorites list"><i class="icon icon-heart"></i></a>
-                                </span>
-                                <span>
-                                    <a href="#productid1" class="mfp-open" data-title="Quick wiew"><i class="icon icon-eye"></i></a>
-                                </span>
-                            </div>
-                            <div class="btn btn-add">
-                                <i class="icon icon-cart"></i>
-                            </div>
-                            <div class="figure-grid">
-                                <span class="label label-warning">New</span>
-                                <div class="image">
-                                    <a href="#productid1" class="mfp-open">
-                                        <img src="assets/images/product-3.png" alt="" width="360" />
-                                    </a>
-                                </div>
-                                <div class="text">
-                                    <h2 class="title h4"><a href="product.html">Nude</a></h2>
-                                    <sup>$ 2999,-</sup>
-                                    <span class="description clearfix">Gubergren amet dolor ea diam takimata consetetur facilisis blandit et aliquyam lorem ea duo labore diam sit et consetetur nulla</span>
-                                </div>
-                            </div>
-                        </article>
-                    </div>
-
-                    <!-- === product-item === -->
-
-                    <div class="col-md-4 col-xs-6">
-                        <article>
-                            <div class="info">
-                                <span class="add-favorite">
-                                    <a href="javascript:void(0);" data-title="Add to favorites" data-title-added="Added to favorites list"><i class="icon icon-heart"></i></a>
-                                </span>
-                                <span>
-                                    <a href="#productid1" class="mfp-open" data-title="Quick wiew"><i class="icon icon-eye"></i></a>
-                                </span>
-                            </div>
-                            <div class="btn btn-add">
-                                <i class="icon icon-cart"></i>
-                            </div>
-                            <div class="figure-grid">
-                                <div class="image">
-                                    <a href="#productid1" class="mfp-open">
-                                        <img src="assets/images/product-4.png" alt="" width="360" />
-                                    </a>
-                                </div>
-                                <div class="text">
-                                    <h2 class="title h4"><a href="product.html">Aurora</a></h2>
-                                    <sup>$ 299,-</sup>
-                                    <span class="description clearfix">Gubergren amet dolor ea diam takimata consetetur facilisis blandit et aliquyam lorem ea duo labore diam sit et consetetur nulla</span>
-                                </div>
-                            </div>
-                        </article>
-                    </div>
-
-                    <!-- === product-item === -->
-
-                    <div class="col-md-4 col-xs-6">
-                        <article>
-                            <div class="info">
-                                <span class="add-favorite added">
-                                    <a href="javascript:void(0);" data-title="Add to favorites" data-title-added="Added to favorites list"><i class="icon icon-heart"></i></a>
-                                </span>
-                                <span>
-                                    <a href="#productid1" class="mfp-open" data-title="Quick wiew"><i class="icon icon-eye"></i></a>
-                                </span>
-                            </div>
-                            <div class="btn btn-add">
-                                <i class="icon icon-cart"></i>
-                            </div>
-                            <div class="figure-grid">
-                                <span class="label label-info">-50%</span>
-                                <div class="image">
-                                    <a href="#productid1" class="mfp-open">
-                                        <img src="assets/images/product-5.png" alt="" width="360" />
-                                    </a>
-                                </div>
-                                <div class="text">
-                                    <h2 class="title h4"><a href="product.html">Dining set</a></h2>
-                                    <sub>$ 1999,-</sub>
-                                    <sup>$ 1499,-</sup>
-                                    <span class="description clearfix">Gubergren amet dolor ea diam takimata consetetur facilisis blandit et aliquyam lorem ea duo labore diam sit et consetetur nulla</span>
-                                </div>
-                            </div>
-                        </article>
-                    </div>
+{% endfor %}
+             
 
                     <!-- === product-item === -->
 
