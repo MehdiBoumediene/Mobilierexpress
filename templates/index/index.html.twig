@@ -652,7 +652,7 @@
                         <article>
                             <div class="info">
                                 <span class="add-favorite ">
-                                    <a href="javascript:void(0);" data-title="Add to favorites" data-title-added="Added to favorites list"><i class="icon icon-heart"></i></a>
+                                    <a href="{{ path('app_produit_details', {'id': produit.id}) }}" data-title="Add to favorites" data-title-added="Added to favorites list"><i class="icon icon-heart"></i></a>
                                 </span>
                                 <span>
                                     <a href="#productid{{produit.id}}" class="mfp-open" data-title="Quick wiew"><i class="icon icon-eye"></i></a>
@@ -776,7 +776,7 @@
                             </div>
                             <div class="popup-cell">
                                 <div class="popup-buttons">
-                                    <a href="product.html"><span class="icon icon-eye"></span> <span class="hidden-xs">Détails</span></a>
+                                    <a href="{{ path('app_produit_details', {'id': produit.id}) }}"><span class="icon icon-eye"></span> <span class="hidden-xs">Détails</span></a>
                                     <a href="javascript:void(0);"><span class="icon icon-cart"></span> <span class="hidden-xs">Commander</span></a>
                                 </div>
                             </div>
