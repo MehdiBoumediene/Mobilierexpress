@@ -36,6 +36,9 @@ class Produits
     #[ORM\OneToMany(mappedBy: 'produit', targetEntity: Files::class, cascade: ['all'])]
     private $files;
 
+    #[ORM\Column(type: 'string', length: 255, nullable: true)]
+    private $prix;
+
     public function __construct()
     {
         $this->files = new ArrayCollection();
@@ -120,6 +123,18 @@ class Produits
                 $file->setProduit(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getPrix(): ?string
+    {
+        return $this->prix;
+    }
+
+    public function setPrix(?string $prix): self
+    {
+        $this->prix = $prix;
 
         return $this;
     }
