@@ -319,14 +319,14 @@
                                         <!--cart item-->
             
                                         <div class="row">
-            
+                                            {%  for produit in produits %}
                                             <div class="cart-block cart-block-item clearfix">
                                                 <div class="image">
                                                     <a href="product.html"><img src="assets/images/product-1.png" alt=""></a>
                                                 </div>
                                                 <div class="title">
-                                                    <div><a href="product.html">Green corner</a></div>
-                                                    <small>Green corner</small>
+                                                    <div><a href="product.html">{{produit.nom}}</a></div>
+                                                    <small>{{produit.categores.nom}}</small>
                                                 </div>
                                                 <div class="quantity">
                                                     <input type="number" value="2" class="form-control form-quantity">
@@ -338,7 +338,7 @@
                                                 <!--delete-this-item-->
                                                 <span class="icon icon-cross icon-delete"></span>
                                             </div>
-            
+                                            {% endfor %}
                                             <!--cart item-->
             
                                             <div class="cart-block cart-block-item clearfix">
