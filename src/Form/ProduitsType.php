@@ -18,8 +18,6 @@ class ProduitsType extends AbstractType
         $builder
             ->add('nom')
             ->add('slug')
-            ->add('description')
- 
             ->add('categorie', EntityType::class, [
                 'class' => Categories::class,
                 'label' => false,
@@ -28,6 +26,7 @@ class ProduitsType extends AbstractType
                 'required'=>false,
          
             ])
+            ->add('description')
             ->add('files',FileType::class,[
                 'label'=> 'Photos',
                 'multiple' => true,

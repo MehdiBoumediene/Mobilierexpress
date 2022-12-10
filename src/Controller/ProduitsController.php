@@ -50,7 +50,7 @@ class ProduitsController extends AbstractController
               
             }
          
-         
+        
             $produitsRepository->add($produit);
             $filesRepository->add($file);
          
