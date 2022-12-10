@@ -23,7 +23,7 @@ class IndexController extends AbstractController
     #[Route('/détails/{id}', name: 'app_produit_details', methods: ['GET'])]
     public function show(Produits $produit): Response
     {
-        return $this->render('produits/show.html.twig', [
+        return $this->render('show.html.twig', [
             'produit' => $produit,
         ]);
     }
