@@ -18,9 +18,7 @@ class Files
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
     private $path;
 
-    /**
-     * @ORM\ManyToOne(targetEntity=Produits::class, inversedBy="files")
-     */
+
     #[ORM\ManyToOne(inversedBy: 'files', targetEntity: Produits::class, cascade: ['all'])]
     private $produit;
 
