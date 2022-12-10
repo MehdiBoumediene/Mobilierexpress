@@ -27,6 +27,7 @@ class ProduitsType extends AbstractType
          
             ])
             ->add('description')
+            ->add('prix')
             ->add('files',FileType::class,[
                 'label'=> 'Photos',
                 'multiple' => true,
