@@ -24,7 +24,7 @@ class IndexController extends AbstractController
     public function show(Produits $produit): Response
     {
         $produits = $produitsRepository->findOneBy(array('id'=>$produit));
-        return $this->render('show.html.twig', [
+        return $this->render('index/show.html.twig', [
             'produit' => $produits,
         ]);
     }
