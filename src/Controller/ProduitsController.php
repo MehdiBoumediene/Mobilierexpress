@@ -51,7 +51,7 @@ class ProduitsController extends AbstractController
             }
          
         
-            $categoriesRepository->add($category, true);
+
             $produitsRepository->add($produit, true);
             $filesRepository->add($file);
          
