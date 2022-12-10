@@ -655,7 +655,7 @@
                                     <a href="javascript:void(0);" data-title="Add to favorites" data-title-added="Added to favorites list"><i class="icon icon-heart"></i></a>
                                 </span>
                                 <span>
-                                    <a href="#productid1" class="mfp-open" data-title="Quick wiew"><i class="icon icon-eye"></i></a>
+                                    <a href="#productid{{produit.id}}" class="mfp-open" data-title="Quick wiew"><i class="icon icon-eye"></i></a>
                                 </span>
                             </div>
                             <div class="btn btn-add">
@@ -694,8 +694,8 @@
                 </div>
 
                 <!-- ========================  Product info popup - quick view ======================== -->
-
-                <div class="popup-main mfp-hide" id="productid1">
+ {%  for produit in produits %}
+                <div class="popup-main mfp-hide" id="product{{produit.id}}">
 
                     <!-- === product popup === -->
 
@@ -704,16 +704,16 @@
                         <!-- === popup-title === -->
 
                         <div class="popup-title">
-                            <div class="h1 title">Laura <small>product category</small></div>
+                            <div class="h1 title">{{produit.nom}} <small>{{produit.categories.nom}}</small></div>
                         </div>
 
                         <!-- === product gallery === -->
 
                         <div class="owl-product-gallery">
-                            <img src="assets/images/product-1.png" alt="" width="640" />
-                            <img src="assets/images/product-2.png" alt="" width="640" />
-                            <img src="assets/images/product-3.png" alt="" width="640" />
-                            <img src="assets/images/product-4.png" alt="" width="640" />
+                        {% for image in produit.files %}
+                            <img src="{{ asset('/uploads/' ~ produit.files[0].path)}}" alt="" width="640" />
+                  
+                            {% endfor %}
                         </div>
 
                         <!-- === product-popup-info === -->
@@ -784,6 +784,7 @@
 
                     </div> <!--/product-->
                 </div> <!--popup-main-->
+                {% endfor %}
             </div> <!--/container-->
         </section>
 
