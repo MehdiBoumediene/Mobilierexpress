@@ -711,7 +711,7 @@
 
                         <div class="owl-product-gallery">
                         {% for image in produit.files %}
-                            <img src="{{ asset('/uploads/' ~ produit.files[0].path)}}" alt="" width="640" />
+                            <img src="{{ asset('/uploads/' ~ image.path)}}" alt="" width="640" />
                   
                             {% endfor %}
                         </div>
