@@ -145,10 +145,12 @@
                             <!-- === product gallery === -->
 
                             <div class="owl-product-gallery open-popup-gallery">
-                                <a href="assets/images/product-1.png"><img src="assets/images/product-1.png" alt="" height="500" /></a>
-                                <a href="assets/images/product-2.png"><img src="assets/images/product-2.png" alt="" height="500" /></a>
-                                <a href="assets/images/product-3.png"><img src="assets/images/product-3.png" alt="" height="500" /></a>
-                                <a href="assets/images/product-4.png"><img src="assets/images/product-4.png" alt="" height="500" /></a>
+                                 {% for image in produit.files %}
+                            
+                                <a href="{{ asset('/uploads/' ~ image.path)}}"><img src="{{ asset('/uploads/' ~ image.path)}}" alt="" height="500" /></a>
+
+                            {% endfor %}
+                  
                             </div>
                         </div>
 
