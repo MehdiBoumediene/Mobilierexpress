@@ -30,7 +30,7 @@
 	<div class="form-row">
 	<div class="col-md-3" >
     <ul class="tags">
-        {% for tag in produit.files %}
+        {% for tag in form.files %}
             {{ form_label(tag.path, 'Photos') }}
 		{{ form_row(tag.path,{'attr': {'class': ''}}) }}
 		{{ form_errors(tag.path) }}</div>
