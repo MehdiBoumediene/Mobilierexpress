@@ -9,6 +9,8 @@ use App\Repository\ProduitsRepository;
 use App\Repository\FilesRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\HttpFoundation\File\Exception\FileException;
+use Symfony\Component\HttpFoundation\File\UploadedFile; 
 use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -35,14 +37,21 @@ class ProduitsController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $files = $form->get('files')->getData();
             foreach($files as $file){
-                // Je génère un nouveau nom de fichier
-                $fichier = md5(uniqid()) . '.' . $file->guessExtension();
+                $originalFilename = pathinfo($files->getClientOriginalName(), PATHINFO_FILENAME);
+                // this is needed to safely include the file name as part of the URL
+          
+                $newFilename = $fichier.'-'.uniqid().'.'.$file->guessExtension();
 
-                // Je copie le fichier dans le dossier uploads
-                $file->move(
-                    $this->getParameter('videos_directory'),
-                    $fichier
-                );
+                // Move the file to the directory where brochures are stored
+                try {
+                    $brochureFile->move(
+                        $this->getParameter('videos_directory'),
+                        $newFilename
+                    );
+                } catch (FileException $e) {
+                    // ... handle exception if something happens during file upload
+                }
+       
 
                 // Je stocke le document dans la BDD (nom du fichier)
                 $file= new Files();
