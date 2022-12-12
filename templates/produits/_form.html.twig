@@ -96,7 +96,26 @@ const addFormToCollection = (e) => {
       collectionHolder.appendChild(item);
 
       collectionHolder.dataset.index++;
+       addTagFormDeleteLink(item);
 }
+document
+    .querySelectorAll('ul.tags li')
+    .forEach((tag) => {
+        addTagFormDeleteLink(tag)
+    })
 
 addTagLink.addEventListener("click", addFormToCollection)
+
+const addTagFormDeleteLink = (item) => {
+    const removeFormButton = document.createElement('button');
+    removeFormButton.innerText = 'Delete this tag';
+
+    item.append(removeFormButton);
+
+    removeFormButton.addEventListener('click', (e) => {
+        e.preventDefault();
+        // remove the li for the tag form
+        item.remove();
+    });
+}
 </script>
