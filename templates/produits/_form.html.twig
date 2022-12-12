@@ -75,6 +75,11 @@ addTagLink.href='#'
 addTagLink.innerText='Add a tag'
 addTagLink.dataset.collectionHolderClass='tags'
 
+document
+    .querySelectorAll('ul.tags li')
+    .forEach((tag) => {
+        addTagFormDeleteLink(tag)
+    })
 const newLinkLi = document.createElement('li').append(addTagLink)
 
 const collectionHolder = document.querySelector('ul.tags')
@@ -98,11 +103,7 @@ const addFormToCollection = (e) => {
       collectionHolder.dataset.index++;
        addTagFormDeleteLink(item);
 }
-document
-    .querySelectorAll('ul.tags li')
-    .forEach((tag) => {
-        addTagFormDeleteLink(tag)
-    })
+
 
 addTagLink.addEventListener("click", addFormToCollection)
 
