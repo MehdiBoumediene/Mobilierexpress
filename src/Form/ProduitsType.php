@@ -41,6 +41,8 @@ class ProduitsType extends AbstractType
             ->add('files',FileType::class,[
                 'label' => false,
                 'multiple' => true,
+                'entry_options' => ['label' => false],
+                'allow_add' => true,
                 'mapped'=> false,
                 'required'=> false,
                 
