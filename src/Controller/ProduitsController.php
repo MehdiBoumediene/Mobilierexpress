@@ -8,6 +8,7 @@ use App\Form\ProduitsType;
 use App\Repository\ProduitsRepository;
 use App\Repository\FilesRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -70,7 +71,7 @@ class ProduitsController extends AbstractController
     }
 
     #[Route('/{id}/edit', name: 'app_produits_edit', methods: ['GET', 'POST'])]
-    public function edit(Request $request, Produits $produit, ProduitsRepository $produitsRepository): Response
+    public function edit(Request $request, Produits $produit, ProduitsRepository $produitsRepository, EntityManagerInterface $entityManager): Response
     {
         $form = $this->createForm(ProduitsType::class, $produit);
         $form->handleRequest($request);
