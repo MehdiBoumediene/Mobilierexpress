@@ -75,7 +75,42 @@ class ProduitsController extends AbstractController
         $form = $this->createForm(ProduitsType::class, $produit);
         $form->handleRequest($request);
 
+
+        if (null === $produit = $entityManager->getRepository(Produits::class)->find($id)) {
+            throw $this->createNotFoundException('No task found for id '.$id);
+        }
+
+        $originalTags = new ArrayCollection();
+
+        // Create an ArrayCollection of the current Tag objects in the database
+        foreach ($produit->getFiles() as $tag) {
+            $originalTags->add($tag);
+        }
+
+        $editForm = $this->createForm(TaskType::class, $task);
+
+        $editForm->handleRequest($request);
+
         if ($form->isSubmitted() && $form->isValid()) {
+
+            foreach ($originalTags as $tag) {
+                if (false === $produit->getFiles()->contains($tag)) {
+                    // remove the Task from the Tag
+                    $tag->getProduits()->removeElement($produit);
+
+                    // if it was a many-to-one relationship, remove the relationship like this
+                   $tag->setProduit(null);
+
+                    $entityManager->persist($tag);
+
+                    // if you wanted to delete the Tag entirely, you can also do that
+                   $entityManager->remove($tag);
+                }
+            }
+
+            $entityManager->persist($task);
+            $entityManager->flush();
+
             $produitsRepository->add($produit, true);
 
             return $this->redirectToRoute('app_produits_index', [], Response::HTTP_SEE_OTHER);
