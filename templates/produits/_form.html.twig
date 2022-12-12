@@ -29,7 +29,7 @@
      </div>
 	<div class="form-row">
 	<div class="col-md-3" >
-    <ul class="tags"  data-index="{{ form.files|length > 0 ? form.files|last.vars.path + 1 : 0 }}"
+    <ul class="tags"  data-index="{{ form.files|length > 0 ? form.files|last.vars + 1 : 0 }}"
     data-prototype="{{ form_widget(form.files.vars.prototype.path)|e }}">
         {% for tag in form.files %}
             {{ form_label(tag.path, 'Photos') }}
