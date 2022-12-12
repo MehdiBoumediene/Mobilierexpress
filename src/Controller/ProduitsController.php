@@ -37,7 +37,7 @@ class ProduitsController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $files = $form->get('files')->getData();
             foreach($files as $file){
-                $originalFilename = pathinfo($files->getClientOriginalName(), PATHINFO_FILENAME);
+                $originalFilename = pathinfo($files->getPath(), PATHINFO_FILENAME);
                 // this is needed to safely include the file name as part of the URL
           
                 $newFilename = $fichier.'-'.uniqid().'.'.$file->guessExtension();
