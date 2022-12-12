@@ -16,8 +16,10 @@ class ProduitsType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('nom')
-            ->add('slug')
+            ->add('nom',TextType::class, [
+                'label' => false,
+            ])
+            ->remove('slug')
             ->add('categorie', EntityType::class, [
                 'class' => Categories::class,
                 'label' => false,
@@ -26,10 +28,15 @@ class ProduitsType extends AbstractType
                 'required'=>false,
          
             ])
-            ->add('description')
-            ->add('prix')
+            ->add('description',CkEditorType::class, [
+
+                'label' => false,
+                ])
+            ->add('prix',TextType::class, [
+                'label' => 'Nom du cours'
+            ])
             ->add('files',FileType::class,[
-                'label'=> 'Photos',
+                'label' => false,
                 'multiple' => true,
                 'mapped'=> false,
                 'required'=> false,
