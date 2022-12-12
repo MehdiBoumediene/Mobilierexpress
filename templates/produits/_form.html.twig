@@ -29,13 +29,12 @@
      </div>
 	<div class="form-row">
 	<div class="col-md-3" >
-    <ul class="tags">
-        {% for tag in form.files %}
-            {{ form_label(tag.path, 'Photos') }}
-		{{ form_row(tag.path,{'attr': {'class': ''}}) }}
-		{{ form_errors(tag.path) }}</div>
-        {% endfor %}
-    </ul>
+
+            {{ form_label(form.files, 'Photos') }}
+		{{ form_row(form.files,{'attr': {'class': ''}}) }}
+		{{ form_errors(form.files) }}</div>
+      
+
     
 	<br><br>
     </div>
