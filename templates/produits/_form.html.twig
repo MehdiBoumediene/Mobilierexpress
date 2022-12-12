@@ -109,7 +109,7 @@ addTagLink.addEventListener("click", addFormToCollection)
 
 const addTagFormDeleteLink = (item) => {
     const removeFormButton = document.createElement('a');
-    removeFormButton.innerText = 'Supprimer';
+    removeFormButton.innerText = "<span style='cursor: pointer; color:red;'>Supprimer</span>";
 
     item.append(removeFormButton);
 
