@@ -10,14 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
 #[ApiResource]
 class Files
 {
-    public function __construct(string $path, bool $checkPath = true)
-    {
-        if ($checkPath && !is_file($path)) {
-            throw new FileNotFoundException($path);
-        }
-
-        parent::__construct($path);
-    }
+    
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column(type: 'integer')]
