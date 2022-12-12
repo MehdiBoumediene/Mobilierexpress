@@ -77,8 +77,8 @@ class ProduitsController extends AbstractController
         $form->handleRequest($request);
 
 
-        if (null === $produit = $entityManager->getRepository(Produits::class)->find($id)) {
-            throw $this->createNotFoundException('No task found for id '.$id);
+        if (null === $produit = $entityManager->getRepository(Produits::class)->find($produit)) {
+            throw $this->createNotFoundException('No task found for id '.$produit);
         }
 
         $originalTags = new ArrayCollection();
