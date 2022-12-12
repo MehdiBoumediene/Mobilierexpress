@@ -14,7 +14,7 @@ class FilesType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-        ->add('path',FileType::class,[
+        ->add('files',FileType::class,[
             'label'=> false,
             'mapped'=> false,
             'required'=> false,
