@@ -89,9 +89,8 @@ class ProduitsController extends AbstractController
             $originalTags->add($tag);
         }
 
-        $editForm = $this->createForm(TaskType::class, $task);
-
-        $editForm->handleRequest($request);
+        $form = $this->createForm(ProduitsType::class, $produit);
+        $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
 
