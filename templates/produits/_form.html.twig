@@ -108,8 +108,8 @@ const addFormToCollection = (e) => {
 addTagLink.addEventListener("click", addFormToCollection)
 
 const addTagFormDeleteLink = (item) => {
-    const removeFormButton = document.createElement('button');
-    removeFormButton.innerText = 'Delete this tag';
+    const removeFormButton = document.createElement('a');
+    removeFormButton.innerText = 'Supprimer';
 
     item.append(removeFormButton);
 
