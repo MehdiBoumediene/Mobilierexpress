@@ -6,7 +6,7 @@ use App\Entity\Produits;
 use App\Entity\Categories;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Validator\Constraints\File;
-use Symfony\Component\Form\Extension\Core\Type\CollectionType;
+
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -38,12 +38,9 @@ class ProduitsType extends AbstractType
             ->add('prix',TextType::class, [
                 'label' => false,
             ])
-            ->add('files',CollectionType::class,[
+            ->add('files',FileType::class,[
                 'label' => false,
-                'entry_type' => FilesType::class,
-                'entry_options' => ['label' => false],
-                'allow_add' => true,
-                'allow_delete' => true,
+                'multiple' => true,
                 'mapped'=> false,
                 'required'=> false,
                 
