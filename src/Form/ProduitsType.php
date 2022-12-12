@@ -6,7 +6,7 @@ use App\Entity\Produits;
 use App\Entity\Categories;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Validator\Constraints\File;
-
+use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -31,7 +31,7 @@ class ProduitsType extends AbstractType
                 'required'=>false,
          
             ])
-            ->add('description',CkEditorType::class, [
+            ->add('description',CollectionType::class, [
 
                 'label' => false,
                 ])
