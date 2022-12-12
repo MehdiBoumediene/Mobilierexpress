@@ -40,7 +40,6 @@ class ProduitsType extends AbstractType
             ])
             ->add('files',CollectionType::class,[
                 'label' => false,
-                'multiple' => true,
                 'entry_type' => FilesType::class,
                 'entry_options' => ['label' => false],
                 'allow_add' => true,
