@@ -1,42 +1,119 @@
-{% extends 'base.html.twig' %}
+{% extends 'baseAdmin.html.twig' %}
 
-{% block title %}Log in!{% endblock %}
+{% block title %}
+	Administration | connexion
+{% endblock %}
 
 {% block body %}
-<form method="post">
-    {% if error %}
-        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-    {% endif %}
+	<style>
+		.app-theme-white.app-container {
+			background: #ffffff;
+		}
+		.slick-slider .slide-img-bg {
+			position: absolute;
+			left: 25px;
+			top: 80px;
+			width: 501px;
+			height: 495px;
+			background-size: contain !important;
+			opacity: 1;
+			z-index: 10;
+			background-repeat: no-repeat !important;
+			background: white;
+		}
+	</style>
+	<form method="post">
+		{% if error %}
+			<div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+		{% endif %}
 
-    {% if app.user %}
-        <div class="mb-3">
-            You are logged in as {{ app.user.userIdentifier }}, <a href="{{ path('app_logout') }}">Logout</a>
-        </div>
-    {% endif %}
+		{% if app.user %}
+			<div class="mb-3">
+				You are logged in as
+				{{ app.user.username }},
+				<a href="{{ path('app_logout') }}">Logout</a>
+			</div>
+		{% endif %}
 
-    <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
-    <label for="inputEmail">Email</label>
-    <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus>
-    <label for="inputPassword">Password</label>
-    <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
+		<div class="app-container app-theme-white body-tabs-shadow">
+			<div class="app-container">
+				<div class="h-100">
+					<div class="h-100 no-gutters row">
+						<div class="d-none d-lg-block col-lg-4">
+							<div class="slider-light">
+								<div class="slick-slider">
+									<div>
+										<div class="position-relative h-100 d-flex justify-content-center align-items-center " tabindex="-1">
+										
+												<img src="{{asset('annim.gif')}}" width="100%"style="
+    margin-left: 250px">
+											
+									
+										
+											<div class="slider-content"></div>
+										</div>
+									</div>
 
-    <input type="hidden" name="_csrf_token"
-           value="{{ csrf_token('authenticate') }}"
-    >
 
-    {#
-        Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
-        See https://symfony.com/doc/current/security/remember_me.html
+								</div>
+							</div>
+						</div>
+						<div class="h-100 d-flex bg-white justify-content-center align-items-center col-md-12 col-lg-8">
+							<div class="mx-auto app-login-box col-sm-12 col-md-10 col-lg-9">
+							
+							
+												
+														<br>
+									<h3 >Bienvenu,</h3>
+									<span>Connectez-vous à votre compte s'il vous plaît.</span>
+							
 
-        <div class="checkbox mb-3">
-            <label>
-                <input type="checkbox" name="_remember_me"> Remember me
-            </label>
-        </div>
-    #}
+								<div class="divider row"></div>
+								<div>
+									<form class="">
+										<div class="form-row">
+											<div class="col-md-6">
+												<div class="position-relative form-group">
+													<label for="exampleEmail" class="">Email</label>
+													<input type="email" value="{{ last_username }}" name="email" id="exampleEmail" placeholder="E-mail ici..." class="form-control" autocomplete="email" required autofocus>
 
-    <button class="btn btn-lg btn-primary" type="submit">
-        Sign in
-    </button>
-</form>
+												</div>
+											</div>
+											<div class="col-md-6">
+												<div class="position-relative form-group">
+													<label for="examplePassword" class="">Password</label>
+													<input type="password" name="password" id="examplePassword" placeholder="Mot de passe ici..." class="form-control" autocomplete="current-password" required>
+
+													<input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+												</div>
+											</div>
+										</div>
+
+										<div class="position-relative form-check">
+
+											<input name="_remember_me" id="exampleCheck" type="checkbox" class="form-check-input">
+											<label for="exampleCheck" class="form-check-label">Se souvenir de moi</label>
+
+
+										</div>
+
+										<div class="divider row"></div>
+										<div class="d-flex align-items-center">
+											<div class="ml-auto">
+										
+												<button class="btn btn-primary btn-lg" type="submit">Se connecter</button>
+											</div>
+										</div>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+	</form>
+
 {% endblock %}
