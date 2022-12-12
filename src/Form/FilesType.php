@@ -13,7 +13,7 @@ class FilesType extends AbstractType
     {
         $builder
             ->add('path')
-            ->add('produit')
+          
         ;
     }
 
