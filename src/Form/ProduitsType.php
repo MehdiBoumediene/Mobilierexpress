@@ -36,7 +36,7 @@ class ProduitsType extends AbstractType
                 'label' => false,
                 ])
             ->add('prix',TextType::class, [
-                'label' => 'Nom du cours'
+                'label' => false,
             ])
             ->add('files',FileType::class,[
                 'label' => false,
