@@ -7,6 +7,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Produits;
 use App\Repository\ProduitsRepository;
+use App\Repository\CategoriesRepository;
 class IndexController extends AbstractController
 {
     #[Route('/', name: 'app_index')]
@@ -22,12 +23,12 @@ class IndexController extends AbstractController
 
 
     #[Route('/shop', name: 'app_shop')]
-    public function shop(ProduitsRepository $produitsRepository): Response
+    public function shop(ProduitsRepository $produitsRepository,CategoriesRepository $categoriesRepository): Response
     {
         $produits = $produitsRepository->findAll();
-
+        $categories = $categoriesRepository->findAll();
         return $this->render('index/shop.html.twig', [
-       
+            'categories'=> $categories,
             'produits'=> $produits
         ]);
     }
