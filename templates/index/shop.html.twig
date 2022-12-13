@@ -665,6 +665,97 @@
                                         </article>
                                     </div>
                               {% endfor %}
+                              {%  for produit in produits %}
+                <div class="popup-main mfp-hide" id="productid{{produit.id}}">
+
+                    <!-- === product popup === -->
+
+                    <div class="product">
+
+                        <!-- === popup-title === -->
+
+                        <div class="popup-title">
+                            <div class="h1 title">{{produit.nom}} <small>{{produit.categorie.nom}}</small></div>
+                        </div>
+
+                        <!-- === product gallery === -->
+
+                        <div class="owl-product-gallery">
+                        {% for image in produit.files %}
+                            <img src="{{ asset('/uploads/' ~ image.path)}}" alt="" width="640" />
+                  
+                            {% endfor %}
+                        </div>
+
+                        <!-- === product-popup-info === -->
+
+                        <div class="popup-content">
+                            <div class="product-info-wrapper">
+                                <div class="row">
+
+                                    <!-- === left-column === -->
+
+                                    <div class="col-sm-6">
+                                        <div class="info-box">
+                                            <strong>Maître d'œuvre</strong>
+                                            <span>Mobilier Express</span>
+                                        </div>
+                                        <div class="info-box">
+                                            <strong>Matériaux</strong>
+                                            <span>Wood, Cuir, Acrylique</span>
+                                        </div>
+                                        <div class="info-box">
+                                            <strong>Disponibilité</strong>
+                                            <span><i class="fa fa-check-square-o"></i> in stock</span>
+                                        </div>
+                                    </div>
+
+                                    <!-- === right-column === -->
+
+                                    <div class="col-sm-6">
+                                        <div class="info-box">
+                                            <strong>Couleurs</strong>
+                                            <div class="product-colors clearfix">
+                                               
+                                                <span class="color-btn color-btn-blue checked"></span>
+                                                <span class="color-btn color-btn-green"></span>
+                                                <span class="color-btn color-btn-gray"></span>
+                                                <span class="color-btn color-btn-biege"></span>
+                                            </div>
+                                        </div>
+                                        <div class="info-box">
+                                            <strong>Tailles </strong>
+                                            <div class="product-colors clearfix">
+                                                <span class="color-btn color-btn-biege">160</span>
+                                                <span class="color-btn color-btn-biege checked">180</span>
+                                                <span class="color-btn color-btn-biege">200</span>
+                                               
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div> <!--/row-->
+                            </div> <!--/product-info-wrapper-->
+                        </div> <!--/popup-content-->
+                        <!-- === product-popup-footer === -->
+
+                        <div class="popup-table">
+                            <div class="popup-cell">
+                                <div class="price">
+                                    <span class="h3" style="color:#c1002c;">Prix {{produit.prix}} DA</span>
+                                </div>
+                            </div>
+                            <div class="popup-cell">
+                                <div class="popup-buttons">
+                                    <a href="{{ path('app_produit_details', {'id': produit.id}) }}"><span class="icon icon-eye"></span> <span class="hidden-xs">Détails</span></a>
+                                    <a href="javascript:void(0);"><span class="icon icon-cart"></span> <span class="hidden-xs">Commander</span></a>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div> <!--/product-->
+                </div> <!--popup-main-->
+                {% endfor %}
                             <!-- === product-item === -->
 
 
