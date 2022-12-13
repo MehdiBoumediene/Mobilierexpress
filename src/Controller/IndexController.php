@@ -22,7 +22,7 @@ class IndexController extends AbstractController
     }
 
 
-    #[Route('/shop', name: 'app_shop')]
+    #[Route('Algerie/Magasin/Meuble', name: 'app_shop')]
     public function shop(ProduitsRepository $produitsRepository,CategoriesRepository $categoriesRepository): Response
     {
         $produits = $produitsRepository->findAll();
@@ -33,7 +33,7 @@ class IndexController extends AbstractController
         ]);
     }
 
-    #[Route('/détails/{id}', name: 'app_produit_details', methods: ['GET'])]
+    #[Route('Algerie/Magasin/Meuble/{id}', name: 'app_produit_details', methods: ['GET'])]
     public function show(Produits $produit): Response
     {
        
@@ -41,4 +41,14 @@ class IndexController extends AbstractController
             'produit' => $produit,
         ]);
     }
+
+    #[Route('Algerie/Magasin/Meuble/Commande/{id}', name: 'app_commande', methods: ['GET'])]
+    public function commande($id): Response
+    {
+       
+        return $this->render('index/commande.html.twig', [
+            
+        ]);
+    }
+
 }
