@@ -1,7 +1,13 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}MOBILIER EXPRESS | {{produit.categorie.nom }} {{produit.nom }} {% endblock %}
-
+{% block meta %}
+<meta property="og:url"           content="{{ path('app_produit_details', {'id': produit.id}) }}" />
+<meta property="og:type"          content="website" />
+<meta property="og:title"         content="{{produit.categorie.nom}} {{produit.nom}}" />
+<meta property="og:description"   content="{{produit.description|raw}}" />
+<meta property="og:image"         content="{{ asset('/uploads/' ~ produit.files[0].path)}}" />
+{% endblock %}
 {% block body %}
 <style>
 
