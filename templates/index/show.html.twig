@@ -6,7 +6,7 @@
 <meta property="og:type"          content="website" />
 <meta property="og:title"         content="{{produit.categorie.nom}} {{produit.nom}}" />
 <meta property="og:description"   content="{{produit.description|raw}}" />
-<meta property="og:image"         content="https://mobilierexpress-dz.com/{{ asset('/uploads/' ~ produit.files[0].path)}}" />
+<meta property="og:image"         content="https://mobilierexpress-dz.com{{ asset('/uploads/' ~ produit.files[0].path)}}" />
 {% endblock %}
 {% block body %}
 <style>
