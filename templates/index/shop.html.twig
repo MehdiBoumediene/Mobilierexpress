@@ -680,7 +680,12 @@
                             <!--Sort options-->
                             <div class="sort-options pull-right">
                                
-                         
+                                <select>
+                                    <option value="1">Name</option>
+                                    <option value="2">Popular items</option>
+                                    <option value="3">Price: lowest</option>
+                                    <option value="4">Price: highest</option>
+                                </select>
                                 <!--Grid-list view-->
                                 <span class="grid-list">
                                     <a href="products-grid.html"><i class="fa fa-th-large"></i></a>
@@ -692,43 +697,45 @@
 
                         <div class="row">
 
-                {%  for produit in produits %}
-                    <div class="col-md-6 col-xs-6">
+                                {%  for produit in produits %}
+                                    <div class="col-md-6 col-xs-6">
 
-                        <article>
-                            <div class="info">
-                                <span class="add-favorite ">
-                                    <a href="{{ path('app_produit_details', {'id': produit.id}) }}" data-title="Add to favorites" data-title-added="Added to favorites list"><i class="icon icon-heart"></i></a>
-                                </span>
-                                <span>
-                                    <a href="#productid{{produit.id}}" class="mfp-open" data-title="Quick wiew"><i class="icon icon-eye"></i></a>
-                                </span>
-                            </div>
-                            <div class="btn btn-add">
-                                <i class="icon icon-cart"></i>
-                            </div>
-                            <div class="figure-grid">
-                                <div class="image">
-                                    <a href="#productid{{produit.id}}" class="mfp-open">
-                                    {% if produit.files %}
-                                        <img src="{{ asset('/uploads/' ~ produit.files[0].path)}}" alt="" width="360" />
-                                    {% endif %}
-                                    </a>
-                                </div>
-                                  <div style="padding-left:8px;">
-                            
-                                 <h2 class="title h4" style="margin-top:8px;margin-bottom:0;padding:0;"><a href="{{ path('app_produit_details', {'id': produit.id}) }}" style="color:#14233c;">{{produit.nom}}</a></h2>
+                                        <article>
+                                            <div class="info">
+                                                <span class="add-favorite ">
+                                                    <a href="{{ path('app_produit_details', {'id': produit.id}) }}" data-title="Add to favorites" data-title-added="Added to favorites list"><i class="icon icon-heart"></i></a>
+                                                </span>
+                                                <span>
+                                                    <a href="#productid{{produit.id}}" class="mfp-open" data-title="Quick wiew"><i class="icon icon-eye"></i></a>
+                                                </span>
+                                            </div>
+                                            <div class="btn btn-add">
+                                                <i class="icon icon-cart"></i>
+                                            </div>
+                                            <div class="figure-grid">
+                                                <div class="image">
+                                                    <a href="#productid{{produit.id}}" class="mfp-open">
+                                                    {% if produit.files %}
+                                                        <img src="{{ asset('/uploads/' ~ produit.files[0].path)}}" alt="" width="360" />
+                                                    {% endif %}
+                                                    </a>
+                                                </div>
+                                                <div style="padding-left:8px;">
+                                            
+                                                <h2 class="title h4" style="margin-top:8px;margin-bottom:0;padding:0;"><a href="{{ path('app_produit_details', {'id': produit.id}) }}" style="color:#14233c;">{{produit.nom}}</a></h2>
 
-                                       <span style="color:black;">{{ produit.categorie.nom }}</span>
-                                 
-                                    <br> <br>
-                                 <span style="color:black;position: absolute;margin-top: -10px; color:#c1002c;font-weight: 500;">Prix {{produit.prix}} DA</span>
-                                 <br>
-                                 </div>
-                            </div>
-                        </article>
-                    </div>
-     {% endfor %}
+                                                    <span style="color:black;">{{ produit.categorie.nom }}</span>
+                                                
+                                                    <br> <br>
+                                                <span style="color:black;position: absolute;margin-top: -10px; color:#c1002c;font-weight: 500;">Prix {{produit.prix}} DA</span>
+                                                <br>
+                                                </div>
+                                            </div>
+                                        </article>
+                                    </div>
+                              {% endfor %}
+                            <!-- === product-item === -->
+
 
                         </div><!--/row-->
                         <!--Pagination-->
