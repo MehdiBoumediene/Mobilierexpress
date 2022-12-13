@@ -20,6 +20,18 @@ class IndexController extends AbstractController
         ]);
     }
 
+
+    #[Route('/shop', name: 'app_shop')]
+    public function shop(ProduitsRepository $produitsRepository): Response
+    {
+        $produits = $produitsRepository->findAll();
+
+        return $this->render('index/shop.html.twig', [
+       
+            'produits'=> $produits
+        ]);
+    }
+
     #[Route('/détails/{id}', name: 'app_produit_details', methods: ['GET'])]
     public function show(Produits $produit): Response
     {
