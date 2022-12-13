@@ -111,8 +111,7 @@ class ProduitsController extends AbstractController
                 }
             }
 
-            $entityManager->persist($task);
-            $entityManager->flush();
+       
 
             $produitsRepository->add($produit, true);
 
