@@ -43,7 +43,7 @@
             
                                 <!-- Setup your logo here-->
             
-                                <a href="index.html" class="logo"><img width="100%" src="{{asset('assets/images/logo.svg')}}" alt=""></a>
+                                <a href="{{path('app_index')}}" class="logo"><img width="100%" src="{{asset('assets/images/logo.svg')}}" alt=""></a>
             
                                 <!-- Mobile toggle menu -->
             
@@ -85,7 +85,7 @@
                                                             <div class="h2">Nos produits</div>
                                                             <div class="clearfix">
                                                                 <p> Une large gamme de produits,  des prix imbattables, designs uniques exporez notre boutique et commander dés maintenant votre meuble.</p>
-                                                                <a class="btn btn-clean btn-big" href="ideas.html">Explorer</a>
+                                                                <a class="btn btn-clean btn-big" href="{{path('app_shop')}}">Explorer</a>
                                                             </div>
                                                         </div>
                                                     </div> <!--/box-1-->
@@ -427,8 +427,8 @@
                  
                     <ol class="breadcrumb breadcrumb-inverted">
                         <li><a href="{{path('app_index')}}"><span class="icon icon-home"></span></a></li>
-                        <li><a href=""></a></li>
-                        <li><a class="active" href=""></a></li>
+                        <li><a href="{{path('app_shop')}}">Shop</a></li>
+                    
                     </ol>
                 </div>
             </header>
