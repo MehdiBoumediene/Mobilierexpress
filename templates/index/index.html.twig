@@ -405,7 +405,7 @@
                                                     <a href="products-grid.html" class="btn btn-clean-dark">Continue shopping</a>
                                                 </div>
                                                 <div class="col-xs-6 text-right">
-                                                    <a href="checkout-1.html" class="btn btn-main"><span class="icon icon-cart"></span> Checkout</a>
+                                                    <a href="{{ path('app_commande', {'id': produit.id}) }}" class="btn btn-main"><span class="icon icon-cart"></span> Checkout</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -659,7 +659,7 @@
                                 </span>
                             </div>
                             <div class="btn btn-add">
-                                <i class="icon icon-cart"></i>
+                                <a href="{{ path('app_commande', {'id': produit.id}) }}"><i class="icon icon-cart"></i></a>
                             </div>
                             <div class="figure-grid">
                                 <div class="image">
