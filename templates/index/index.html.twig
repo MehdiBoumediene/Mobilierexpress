@@ -777,7 +777,7 @@
                             <div class="popup-cell">
                                 <div class="popup-buttons">
                                     <a href="{{ path('app_produit_details', {'id': produit.id}) }}"><span class="icon icon-eye"></span> <span class="hidden-xs">Détails</span></a>
-                                    <a href="javascript:void(0);"><span class="icon icon-cart"></span> <span class="hidden-xs">Commander</span></a>
+                                    <a href="{{ path('app_commande', {'id': produit.id}) }}"><span class="icon icon-cart"></span> <span class="hidden-xs">Commander</span></a>
                                 </div>
                             </div>
                         </div>
