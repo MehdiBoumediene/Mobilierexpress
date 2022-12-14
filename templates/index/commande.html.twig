@@ -417,7 +417,9 @@
 
                                 <div class="white-block">
                                   <div class="h4">{{produit.nom}}</div>
-
+                                  <img src="{{ asset('/uploads/' ~ produit.files[0].path)}}" alt="" height="300" />
+                                  <span style="color:black;position: absolute;margin-top: -10px; color:#c1002c;font-weight: 500;">Prix {{produit.prix}} DA</span>
+                                    <hr>
                                     <div class="h4">Choose delivery</div>
 
                                     <hr>
