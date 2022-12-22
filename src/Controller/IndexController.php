@@ -15,6 +15,7 @@ use App\Repository\ProduitsRepository;
 
 use App\Repository\CategoriesRepository;
 use Symfony\Bridge\Twig\Mime\TemplatedEmail;
+use Symfony\Component\Mime\Address;
 class IndexController extends AbstractController
 {
     #[Route('/', name: 'app_index')]
