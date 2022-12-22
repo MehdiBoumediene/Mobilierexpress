@@ -79,7 +79,7 @@ class CommandesType extends AbstractType
             ])
         
             ->add('Email',EmailType::class, [
-               
+                'label' => false
                 ])
             ->add('produit', EntityType::class, [
                 'class' => Produits::class,
