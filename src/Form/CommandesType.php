@@ -34,7 +34,7 @@ class CommandesType extends AbstractType
                 ->add('adresse',TextType::class, [
                     'label' => false
                     ])
-            ->add('etage',ChoiceType::class, [
+            ->remove('etage',ChoiceType::class, [
                 'choices' => [
                     '1' => '1',
                     '2' => '2',
@@ -51,7 +51,7 @@ class CommandesType extends AbstractType
                 'required' => false,
                 'label' => false
             ])
-            ->add('couleur',ChoiceType::class, [
+            ->remove('couleur',ChoiceType::class, [
                 'choices' => [
                     'Marron' => 'Marron',
                     'Gris' => 'Gris',
@@ -65,7 +65,7 @@ class CommandesType extends AbstractType
                 'label' => false
             ])
 
-            ->add('dimentions',ChoiceType::class, [
+            ->remove('dimentions',ChoiceType::class, [
                 'choices' => [
                     '160' => '160',
                     '180' => '180',
