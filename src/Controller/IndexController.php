@@ -5,6 +5,10 @@ namespace App\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use App\Form\CommandesType;
+use App\Repository\CommandesRepository;
+use Symfony\Component\HttpFoundation\Request;
+
 use App\Entity\Produits;
 use App\Repository\ProduitsRepository;
 use App\Repository\CategoriesRepository;
@@ -43,11 +47,23 @@ class IndexController extends AbstractController
     }
 
     #[Route('Algerie/Magasin/Meuble/Commande/{id}', name: 'app_commande', methods: ['GET'])]
-    public function commande($id,ProduitsRepository $produitsRepository): Response
+    public function commande(Request $request,$id,ProduitsRepository $produitsRepository): Response
     {
         $produit = $produitsRepository->findOneBy(array('id'=>$id));
+
+        $commande = new Commandes();
+        $form = $this->createForm(CommandesType::class, $commande);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $commandesRepository->add($commande, true);
+
+            return $this->redirectToRoute('app_commande', ['id'=>$id], Response::HTTP_SEE_OTHER);
+        }
+
         return $this->render('index/commande.html.twig', [
             'produit' => $produit,
+            'form' => $form,
         ]);
     }
 
