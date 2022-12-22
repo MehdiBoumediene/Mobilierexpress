@@ -37,7 +37,7 @@ class CommandesController extends AbstractController
         ->setBody(
             $this->renderView(
                 // templates/emails/registration.html.twig
-                'emails/registration.html.twig',
+                'templates/emails/commande.html.twig',
                 ['nom' => $form->get('nom'->getData()),
                  'Email' => $form->get('Email'->getData()),
                  'telephone' => $form->get('telephone'->getData()),
