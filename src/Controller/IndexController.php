@@ -12,7 +12,8 @@ use Symfony\Component\HttpFoundation\Request;
 use App\Entity\Produits;
 use App\Entity\Commandes;
 use App\Repository\ProduitsRepository;
-
+use Symfony\Component\Mailer\MailerInterface; 
+use Symfony\Component\Mime\BodyRendererInterface;
 use App\Repository\CategoriesRepository;
 use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use Symfony\Component\Mime\Address;
@@ -51,7 +52,7 @@ class IndexController extends AbstractController
     }
 
     #[Route('Algerie/Magasin/Meuble/Commande/{id}', name: 'app_commande', methods: ['GET','POST'])]
-    public function commande(Request $request,$id,ProduitsRepository $produitsRepository,CommandesRepository $commandesRepository): Response
+    public function commande(MailerInterface $mailer,Request $request,$id,ProduitsRepository $produitsRepository,CommandesRepository $commandesRepository): Response
     {
         $produit = $produitsRepository->findOneBy(array('id'=>$id));
 
@@ -80,6 +81,7 @@ class IndexController extends AbstractController
                 ])
                 
             ;
+            $bodyRenderer->render($email);
             $mailer->send($email);
 
             return $this->redirectToRoute('app_commande', ['id'=>$id], Response::HTTP_SEE_OTHER);
