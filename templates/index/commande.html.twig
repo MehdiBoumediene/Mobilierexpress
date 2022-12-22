@@ -346,22 +346,43 @@
 
                                             <div class="row">
                                                 {{ form_start(form) }}
+                                                <div class="col-md-12">
+                                                    <div class="form-group">
                                                     {{ form_label(form.nom, 'Nom et prénom *') }}
                                                   	{{ form_row(form.nom,{'attr': {'class': 'form-control'}}) }}
 	                                            	{{ form_errors(form.nom) }}
-                                                    <button class="btn">{{ button_label|default('Save') }}</button>
-                                                {{ form_end(form) }}
-                                                <div class="col-md-6">
+                                                    </div>
+                                                   
+                                                </div>
+
+                                                  <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <input type="text" value="" class="form-control" placeholder="First name: *">
+                                                          {{ form_label(form.email, 'Email *') }}
+                                                  	{{ form_row(form.email,{'attr': {'class': 'form-control'}}) }}
+	                                            	{{ form_errors(form.email) }}
                                                     </div>
                                                 </div>
 
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <input type="text" value="" class="form-control" placeholder="Last name: *">
+                                                                          {{ form_label(form.telephone, 'Téléphone *') }}
+                                                  	{{ form_row(form.telephone,{'attr': {'class': 'form-control'}}) }}
+	                                            	{{ form_errors(form.telephone) }}
                                                     </div>
                                                 </div>
+
+                                                            <div class="col-md-12">
+                                                    <div class="form-group">
+                                                    {{ form_label(form.adresse, 'Adrésse de livraison *') }}
+                                                  	{{ form_row(form.adresse,{'attr': {'class': 'form-control'}}) }}
+	                                            	{{ form_errors(form.adresse) }}
+                                                    </div>
+                                                   
+                                                </div>
+
+                                                 <button class="btn">{{ button_label|default('Save') }}</button>
+                                                {{ form_end(form) }}
+                                              
 
                                                 <div class="col-md-12">
 
