@@ -36,6 +36,9 @@ class Commandes
     #[ORM\ManyToOne(targetEntity: Produits::class, inversedBy: 'commandes')]
     private $produit;
 
+    #[ORM\Column(type: 'string', length: 255)]
+    private $adresse;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -121,6 +124,18 @@ class Commandes
     public function setProduit(?Produits $produit): self
     {
         $this->produit = $produit;
+
+        return $this;
+    }
+
+    public function getAdresse(): ?string
+    {
+        return $this->adresse;
+    }
+
+    public function setAdresse(string $adresse): self
+    {
+        $this->adresse = $adresse;
 
         return $this;
     }
