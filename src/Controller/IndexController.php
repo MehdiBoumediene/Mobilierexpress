@@ -62,7 +62,7 @@ class IndexController extends AbstractController
             return $this->redirectToRoute('app_commande', ['id'=>$id], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->render('index/commande.html.twig', [
+        return $this->renderForm('index/commande.html.twig', [
             'produit' => $produit,
             'form' => $form,
         ]);
