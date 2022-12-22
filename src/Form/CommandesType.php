@@ -18,7 +18,7 @@ use Symfony\Component\Form\FormEvent;
 use Symfony\Component\Form\FormEvents;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
-
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 class CommandesType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
