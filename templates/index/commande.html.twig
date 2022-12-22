@@ -346,7 +346,9 @@
 
                                             <div class="row">
                                                 {{ form_start(form) }}
-                                                    {{ form_widget(form) }}
+                                                    {{ form_label(form.nom, 'Nom et prénom *') }}
+                                                  	{{ form_row(form.nom,{'attr': {'class': 'form-control'}}) }}
+	                                            	{{ form_errors(form.nom) }}
                                                     <button class="btn">{{ button_label|default('Save') }}</button>
                                                 {{ form_end(form) }}
                                                 <div class="col-md-6">
