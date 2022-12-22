@@ -31,7 +31,9 @@ class CommandesType extends AbstractType
             ->add('telephone',TextType::class, [
                 'label' => false
                 ])
-           
+                ->add('adresse',TextType::class, [
+                    'label' => false
+                    ])
             ->add('etage',ChoiceType::class, [
                 'choices' => [
                     '1' => '1',
