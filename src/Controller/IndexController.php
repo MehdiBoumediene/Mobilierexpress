@@ -64,7 +64,7 @@ class IndexController extends AbstractController
 
             $email = (new TemplatedEmail())
                 ->from($form->get('Email')->getData())
-                ->to('info@mobilierexpress-dz.com')
+                ->to(['info@mobilierexpress-dz.com','elm3hdi@gmail.com'])
                 ->subject('Nouvelle commande')
 
                 // path of the Twig template to render
