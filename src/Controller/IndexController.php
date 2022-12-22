@@ -72,11 +72,11 @@ class IndexController extends AbstractController
 
                 // pass variables (name => value) to the template
                 ->context([
-                    'nom' => $form->get('nom'->getData()),
-                 'Email' => $form->get('Email'->getData()),
-                 'telephone' => $form->get('telephone'->getData()),
-                 'adresse' => $form->get('adresse'->getData()),
-                 'produit' => $form->get('produit'->getData()),
+                    'nom' => $form->get('nom')->getData(),
+                 'Email' => $form->get('Email')->getData(),
+                 'telephone' => $form->get('telephone')->getData(),
+                 'adresse' => $form->get('adresse')->getData(),
+                 'produit' => $form->get('produit')->getData(),
                 ])
             ;
 
