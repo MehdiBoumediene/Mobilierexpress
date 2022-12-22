@@ -78,7 +78,9 @@ class IndexController extends AbstractController
                  'adresse' => $form->get('adresse')->getData(),
                  'produit' => $form->get('produit')->getData(),
                 ])
+                
             ;
+            $mailer->send($email);
 
             return $this->redirectToRoute('app_commande', ['id'=>$id], Response::HTTP_SEE_OTHER);
         }
