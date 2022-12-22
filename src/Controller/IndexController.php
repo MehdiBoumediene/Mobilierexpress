@@ -10,6 +10,7 @@ use App\Repository\CommandesRepository;
 use Symfony\Component\HttpFoundation\Request;
 
 use App\Entity\Produits;
+use App\Entity\Commandes;
 use App\Repository\ProduitsRepository;
 use App\Repository\CategoriesRepository;
 class IndexController extends AbstractController
