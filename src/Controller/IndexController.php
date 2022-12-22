@@ -13,6 +13,7 @@ use App\Entity\Produits;
 use App\Entity\Commandes;
 use App\Repository\ProduitsRepository;
 use App\Repository\CategoriesRepository;
+use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 class IndexController extends AbstractController
 {
     #[Route('/', name: 'app_index')]
@@ -58,6 +59,24 @@ class IndexController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $commandesRepository->add($commande, true);
+
+            $email = (new TemplatedEmail())
+                ->from($form->get('Email')->getData())
+                ->to(new Address('info@mobilierexpress-dz.com'))
+                ->subject('Nouvelle commande')
+
+                // path of the Twig template to render
+                ->htmlTemplate('emails/commande.html.twig')
+
+                // pass variables (name => value) to the template
+                ->context([
+                    'nom' => $form->get('nom'->getData()),
+                 'Email' => $form->get('Email'->getData()),
+                 'telephone' => $form->get('telephone'->getData()),
+                 'adresse' => $form->get('adresse'->getData()),
+                 'produit' => $form->get('produit'->getData()),
+                ])
+            ;
 
             return $this->redirectToRoute('app_commande', ['id'=>$id], Response::HTTP_SEE_OTHER);
         }

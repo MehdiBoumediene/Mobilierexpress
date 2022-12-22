@@ -31,8 +31,6 @@ class CommandesController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $commandesRepository->add($commande, true);
 
-          
-
             return $this->redirectToRoute('app_commandes_index', [], Response::HTTP_SEE_OTHER);
         }
 
