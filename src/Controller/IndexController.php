@@ -81,7 +81,7 @@ class IndexController extends AbstractController
                 ])
                 
             ;
-            $bodyRenderer->render($email);
+       
             $mailer->send($email);
 
             return $this->redirectToRoute('app_commande', ['id'=>$id], Response::HTTP_SEE_OTHER);
