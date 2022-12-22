@@ -9,7 +9,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-
+use Symfony\Bundle\SwiftmailerBundle;
 
 #[Route('/commandes')]
 class CommandesController extends AbstractController
@@ -32,7 +32,23 @@ class CommandesController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $commandesRepository->add($commande, true);
 
-          
+            $message = (new \Swift_Message('Mobilier Express|Commande'))
+        ->setFrom($form->get('Email')->getData())
+        ->setTo('info@mobilierexpress-dz.com')
+        ->setBody(
+            $this->renderView(
+                // templates/emails/registration.html.twig
+                'templates/emails/commande.html.twig',
+                ['nom' => $form->get('nom'->getData()),
+                 'Email' => $form->get('Email'->getData()),
+                 'telephone' => $form->get('telephone'->getData()),
+                 'adresse' => $form->get('adresse'->getData()),
+                 'produit' => $form->get('produit'->getData()),
+                
+                ]
+            ),
+            'text/html'
+        );
 
             return $this->redirectToRoute('app_commandes_index', [], Response::HTTP_SEE_OTHER);
         }
