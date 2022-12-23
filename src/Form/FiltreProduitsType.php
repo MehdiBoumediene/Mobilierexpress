@@ -60,7 +60,7 @@ class FiltreProduitsType extends AbstractType
     }
     public function getBlockPrefix()
     {
-        return '';
+        return 'search';
     }
 
 }
