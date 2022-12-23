@@ -895,7 +895,7 @@ $( ".categorie" ).each(function( index ) {
                 $('#categorie option:selected').val($(this).val());
             
                 $( "form" ).submit();
-                this.setAttribute("checked", "checked");
+                $(this).attr('checked','checked');
         });
 });
 
