@@ -592,6 +592,10 @@
                                     Type
                                 </div>
                                 <div class="filter-content">
+                                      {{ form_start(form) }}
+
+                                      {{ form_end(form) }}
+
                                      <span class="checkbox">
                                         <input type="radio" name="radiogroup-type" id="typeIdAll" checked="checked">
                                         <label for="typeIdAll">Tous <i>( {{produits|length}} )</i></label>
