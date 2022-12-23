@@ -892,7 +892,7 @@ $(document).ready(function () {
 $( ".categorie" ).each(function( index ) {
 
         $(this).click(function() {
-                $('#categorie').val($(this).val());
+                $('#categorie option:selected').text($(this).val());
                 $( "form" ).submit();
         });
 });
