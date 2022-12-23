@@ -603,7 +603,7 @@
                                      {% for categorie in categories %}
                            
                                        <span class="checkbox">
-                                        <input type="radio" name="radiogroup-type" class="categorie" id="typeId{{categorie.id}}" value="{{categorie.id}}">
+                                        <input type="radio" name="radiogroup-type" class="categorie" id="typeId{{categorie.id}}" value="{{categorie.nom}}">
                                         <label for="typeId{{categorie.id}}">{{categorie.nom}} <i>({{categorie.produits|length}})</i></label>
                                     </span>
                                     {% endfor %}
