@@ -603,7 +603,7 @@
                                      {% for categorie in categories %}
                            
                                        <span class="checkbox">
-                                        <input type="radio" name="radiogroup-type" id="typeId{{categorie.id}}">
+                                        <input type="radio" name="radiogroup-type" class="categorie" id="typeId{{categorie.id}}">
                                         <label for="typeId{{categorie.id}}">{{categorie.nom}} <i>({{categorie.produits|length}})</i></label>
                                     </span>
                                     {% endfor %}
@@ -883,6 +883,22 @@
         </section>
     
     </div>
+	<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+    <script>
 
+$(document).ready(function () {
+
+
+$( ".categorie" ).each(function( index ) {
+
+        $(this).click(function() {
+                $('#filtre_produits_categorie').val($(this).val())
+        });
+});
+
+
+        });
+
+	</script>
 
  {% endblock %}
