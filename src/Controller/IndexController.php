@@ -15,8 +15,9 @@ use App\Repository\ProduitsRepository;
 use Symfony\Component\Mailer\MailerInterface; 
 use Symfony\Component\Mime\BodyRendererInterface;
 use App\Repository\CategoriesRepository;
+use App\Form\FiltreProduitsType;
 use Symfony\Bridge\Twig\Mime\TemplatedEmail;
-use Symfony\Component\Mime\Address;
+
 class IndexController extends AbstractController
 {
     #[Route('/', name: 'app_index')]
@@ -31,14 +32,36 @@ class IndexController extends AbstractController
     }
 
 
-    #[Route('algerie/magasin/meuble', name: 'app_shop')]
-    public function shop(ProduitsRepository $produitsRepository,CategoriesRepository $categoriesRepository): Response
+    #[Route('algerie/magasin/meuble', name: 'app_shop', methods: ['GET', 'POST'])]
+    public function shop(Request $request,ProduitsRepository $produitsRepository,CategoriesRepository $categoriesRepository): Response
     {
         $produits = $produitsRepository->findAll();
         $categories = $categoriesRepository->findAll();
-        return $this->render('index/shop.html.twig', [
+
+        $form = $this->createForm(FiltreProduitsType::class);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+     
+        $categorie = $form->get('categorie')->getData();
+        
+
+       
+        $produits =  $produitsRepository->findBy(array('categorie'=>$categorie));
+
+
+
+            return $this->renderForm('index/shop.html.twig', [
+                'produits' => $produits,
+                'categories'=> $categories,
+                'form' => $form,
+            ]);
+        }
+
+        return $this->renderForm('index/shop.html.twig', [
             'categories'=> $categories,
-            'produits'=> $produits
+            'produits'=> $produits,
+            'form' => $form,
         ]);
     }
 
@@ -57,7 +80,7 @@ class IndexController extends AbstractController
         $produit = $produitsRepository->findOneBy(array('id'=>$id));
 
         $commande = new Commandes();
-        $form = $this->createForm(CommandesType::class, $commande);
+        $form = $this->createForm(CommandesType::class);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
