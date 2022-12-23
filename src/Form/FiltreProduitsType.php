@@ -15,6 +15,7 @@ use Symfony\Component\Form\FormEvent;
 use Symfony\Component\Form\FormEvents;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
+use Symfony\Component\Form\ChoiceList\ChoiceList;
 
 class FiltreProduitsType extends AbstractType
 {
@@ -29,6 +30,7 @@ class FiltreProduitsType extends AbstractType
       
         ->add('categorie', EntityType::class, [
             'class' => Categories::class,
+            'choice_value' => ChoiceList::value($this, 'nom'),
             'query_builder' => function (EntityRepository $er) {
                 return $er->createQueryBuilder('u')
                     ->orderBy('u.nom', 'ASC');
