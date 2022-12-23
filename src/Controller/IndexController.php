@@ -31,7 +31,7 @@ class IndexController extends AbstractController
     }
 
 
-    #[Route('Algerie/Magasin/Meuble', name: 'app_shop')]
+    #[Route('algerie/magasin/meuble', name: 'app_shop')]
     public function shop(ProduitsRepository $produitsRepository,CategoriesRepository $categoriesRepository): Response
     {
         $produits = $produitsRepository->findAll();
@@ -42,7 +42,7 @@ class IndexController extends AbstractController
         ]);
     }
 
-    #[Route('Algerie/Magasin/Meuble/{id}', name: 'app_produit_details', methods: ['GET'])]
+    #[Route('algerie/magasin/meuble/{id}', name: 'app_produit_details', methods: ['GET'])]
     public function show(Produits $produit): Response
     {
        
@@ -51,7 +51,7 @@ class IndexController extends AbstractController
         ]);
     }
 
-    #[Route('Algerie/Magasin/Meuble/Commande/{id}', name: 'app_commande', methods: ['GET','POST'])]
+    #[Route('algérie/magasin/meuble/commande/{id}', name: 'app_commande', methods: ['GET','POST'])]
     public function commande(MailerInterface $mailer, Request $request,$id,ProduitsRepository $produitsRepository,CommandesRepository $commandesRepository): Response
     {
         $produit = $produitsRepository->findOneBy(array('id'=>$id));
