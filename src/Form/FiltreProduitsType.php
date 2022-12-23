@@ -49,6 +49,12 @@ class FiltreProduitsType extends AbstractType
    
         
     }
-
+    public function configureOptions(OptionsResolver $resolver)
+    {
+        $resolver->setDefaults([
+            'method' => 'GET',
+            'csrf_protection' => false
+        ]);
+    }
 
 }
