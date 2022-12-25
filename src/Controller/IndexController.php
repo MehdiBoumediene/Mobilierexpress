@@ -74,7 +74,7 @@ class IndexController extends AbstractController
         ]);
     }
 
-    #[Route('algérie/magasin/meuble/commande/{categorie}/{id}', name: 'app_commande', methods: ['GET','POST'])]
+    #[Route('algérie/magasin/meuble/commande/{categorie}-{id}', name: 'app_commande', methods: ['GET','POST'])]
     public function commande(MailerInterface $mailer, Request $request,$id,ProduitsRepository $produitsRepository,CommandesRepository $commandesRepository): Response
     {
         $produit = $produitsRepository->findOneBy(array('nom'=>$id));
