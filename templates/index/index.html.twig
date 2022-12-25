@@ -639,7 +639,7 @@
                             <div class="popup-cell">
                                 <div class="popup-buttons">
                                     <a href="{{ path('app_produit_details', {'categorie': produit.categorie.nom,'id': produit.nom}) }}"><span class="icon icon-eye"></span> <span class="hidden-xs">Détails</span></a>
-                                    <a style="background:black;" href="{{ path('app_commande', {'categorie': produit.categorie.nom,'id': produit.nom}) }}"><span class="icon icon-cart" style="color:white;"></span> <span class="hidden-xs">Commander</span></a>
+                                    <a style="background:black; color:white," href="{{ path('app_commande', {'categorie': produit.categorie.nom,'id': produit.nom}) }}"><span class="icon icon-cart" style="color:white;"></span> <span class="hidden-xs" style="color:white;">Commander</span></a>
                                 </div>
                             </div>
                         </div>
