@@ -23,7 +23,7 @@ class IndexController extends AbstractController
     #[Route('/', name: 'app_index')]
     public function index(ProduitsRepository $produitsRepository): Response
     {
-        $produits = $produitsRepository->findAll();
+        $produits = $produitsRepository->findBy(array('accueil'=>true),array('id' => 'DESC'));
 
         return $this->render('index/index.html.twig', [
             'controller_name' => 'IndexController',
