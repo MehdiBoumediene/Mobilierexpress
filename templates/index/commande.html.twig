@@ -337,7 +337,7 @@
                                 <div class="login-wrapper">
 
                                     <div class="white-block">
-   <div class="white-block">
+                              
                                   <div class="h4">{{produit.nom}}</div>
                                   <img src="{{ asset('/uploads/' ~ produit.files[0].path)}}" alt="" height="300" /><br><br>
                                   <span style=" color:#c1002c;font-weight: 500;">Prix {{produit.prix}} DA</span>
@@ -370,8 +370,10 @@
                                             <hr>
 
                                             <div class="row">
+                                              <div class="white-block">
                                                 {{ form_start(form) }}
                                                 <div class="col-md-12">
+                                                
                                                     <div class="form-group">
                                                     {{ form_label(form.nom, 'Nom et prénom *') }}
                                                   	{{ form_row(form.nom,{'attr': {'class': 'form-control'}}) }}
@@ -421,6 +423,7 @@
                                                                                                  <button class="btn btn-main btn-block">{{ button_label|default('Passer la commande') }}</button>
 
                                                 {{ form_end(form) }}
+                                                </div>
                                             </div>
                                         </div> <!--/signup-->
 
