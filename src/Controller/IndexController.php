@@ -15,8 +15,9 @@ use App\Repository\ProduitsRepository;
 use Symfony\Component\Mailer\MailerInterface; 
 use Symfony\Component\Mime\BodyRendererInterface;
 use App\Repository\CategoriesRepository;
+use App\Form\FiltreProduitsType;
 use Symfony\Bridge\Twig\Mime\TemplatedEmail;
-use Symfony\Component\Mime\Address;
+
 class IndexController extends AbstractController
 {
     #[Route('/', name: 'app_index')]
@@ -31,18 +32,40 @@ class IndexController extends AbstractController
     }
 
 
-    #[Route('Algerie/Magasin/Meuble', name: 'app_shop')]
-    public function shop(ProduitsRepository $produitsRepository,CategoriesRepository $categoriesRepository): Response
+    #[Route('algerie/magasin/meuble', name: 'app_shop', methods: ['GET', 'POST'])]
+    public function shop(Request $request,ProduitsRepository $produitsRepository,CategoriesRepository $categoriesRepository): Response
     {
         $produits = $produitsRepository->findAll();
         $categories = $categoriesRepository->findAll();
-        return $this->render('index/shop.html.twig', [
+
+        $form = $this->createForm(FiltreProduitsType::class);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+     
+        $categorie = $form->get('categorie')->getData();
+        
+
+       
+        $produits =  $produitsRepository->findBy(array('categorie'=>$categorie));
+
+
+
+            return $this->renderForm('index/shop.html.twig', [
+                'produits' => $produits,
+                'categories'=> $categories,
+                'form' => $form,
+            ]);
+        }
+
+        return $this->renderForm('index/shop.html.twig', [
             'categories'=> $categories,
-            'produits'=> $produits
+            'produits'=> $produits,
+            'form' => $form,
         ]);
     }
 
-    #[Route('Algerie/Magasin/Meuble/{id}', name: 'app_produit_details', methods: ['GET'])]
+    #[Route('algerie/magasin/meuble/{id}', name: 'app_produit_details', methods: ['GET'])]
     public function show(Produits $produit): Response
     {
        
@@ -51,13 +74,13 @@ class IndexController extends AbstractController
         ]);
     }
 
-    #[Route('Algerie/Magasin/Meuble/Commande/{id}', name: 'app_commande', methods: ['GET','POST'])]
+    #[Route('algérie/magasin/meuble/commande/{id}', name: 'app_commande', methods: ['GET','POST'])]
     public function commande(MailerInterface $mailer, Request $request,$id,ProduitsRepository $produitsRepository,CommandesRepository $commandesRepository): Response
     {
         $produit = $produitsRepository->findOneBy(array('id'=>$id));
 
         $commande = new Commandes();
-        $form = $this->createForm(CommandesType::class, $commande);
+        $form = $this->createForm(CommandesType::class);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {

@@ -427,7 +427,7 @@
                  
                     <ol class="breadcrumb breadcrumb-inverted">
                         <li><a href="{{path('app_index')}}"><span class="icon icon-home"></span></a></li>
-                        <li><a href="{{path('app_shop')}}">Shop</a></li>
+                        <li><a href="{{path('app_shop')}}">Algérie magasin meuble</a></li>
                     
                     </ol>
                 </div>
@@ -592,14 +592,18 @@
                                     Type
                                 </div>
                                 <div class="filter-content">
+                                      {{ form_start(form) }}
+
+                                      {{ form_end(form) }}
+
                                      <span class="checkbox">
-                                        <input type="radio" name="radiogroup-type" id="typeIdAll" checked="checked">
+                                        <input type="radio" name="radiogroup-type" class="categorie" id="typeIdAll" value="" checked="checked">
                                         <label for="typeIdAll">Tous <i>( {{produits|length}} )</i></label>
                                     </span>
                                      {% for categorie in categories %}
                            
                                        <span class="checkbox">
-                                        <input type="radio" name="radiogroup-type" id="typeId{{categorie.id}}">
+                                        <input type="radio" name="radiogroup-type" class="categorie" id="typeId{{categorie.id}}" value="{{categorie.nom}}">
                                         <label for="typeId{{categorie.id}}">{{categorie.nom}} <i>({{categorie.produits|length}})</i></label>
                                     </span>
                                     {% endfor %}
@@ -879,6 +883,25 @@
         </section>
     
     </div>
+	<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+    <script>
 
+$(document).ready(function () {
+
+
+$( ".categorie" ).each(function( index ) {
+
+        $(this).click(function() {
+                $('#categorie option:selected').val($(this).val());
+            
+                $( "form" ).submit();
+                $(this).attr('checked','checked');
+        });
+});
+
+
+        });
+
+	</script>
 
  {% endblock %}
