@@ -42,6 +42,12 @@ class Produits
     #[ORM\OneToMany(mappedBy: 'produit', targetEntity: Commandes::class)]
     private $commandes;
 
+    #[ORM\Column(type: 'boolean', nullable: true)]
+    private $accueil;
+
+    #[ORM\Column(type: 'boolean', nullable: true)]
+    private $dispo;
+
     public function __construct()
     {
         $this->files = new ArrayCollection();
@@ -169,6 +175,30 @@ class Produits
                 $commande->setProduit(null);
             }
         }
+
+        return $this;
+    }
+
+    public function isAccueil(): ?bool
+    {
+        return $this->accueil;
+    }
+
+    public function setAccueil(?bool $accueil): self
+    {
+        $this->accueil = $accueil;
+
+        return $this;
+    }
+
+    public function isDispo(): ?bool
+    {
+        return $this->dispo;
+    }
+
+    public function setDispo(?bool $dispo): self
+    {
+        $this->dispo = $dispo;
 
         return $this;
     }

@@ -13,6 +13,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use FOS\CKEditorBundle\Form\Type\CKEditorType;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use PhpParser\Node\Stmt\Label;
 class ProduitsType extends AbstractType
 {
@@ -21,6 +22,12 @@ class ProduitsType extends AbstractType
         $builder
             ->add('nom',TextType::class, [
                 'label' => false,
+            ])
+            ->add('dispo',CheckboxType::class, [
+                'label' => 'Disponible',
+            ])
+            ->add('accueil',CheckboxType::class, [
+                'label' => "Afficher à l'accueil"
             ])
             ->remove('slug')
             ->add('categorie', EntityType::class, [
