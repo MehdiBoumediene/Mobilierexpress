@@ -892,12 +892,16 @@ $(document).ready(function () {
 $( ".categorie" ).each(function( index ) {
 
         $(this).click(function() {
-            $(this).attr('checked','checked');
+         
                 $('#categorie option:selected').val($(this).val());
             
                 $( "form" ).submit();
                 
         });
+
+        if($('#categorie').val() == $('.categorie').val()){
+               $(this).attr('checked','checked');
+        }
 });
 
 
