@@ -484,7 +484,7 @@ fjs.parentNode.insertBefore(js, fjs);
                     <ol class="breadcrumb breadcrumb-inverted">
                         <li><a href="{{path('app_index')}}"><span class="icon icon-home"></span></a></li>
                         <li><a href="">{{produit.categorie.nom}}</a></li>
-                        <li><a class="active" href="{{ path('app_produit_details', {'id': produit.id}) }}">{{produit.nom}}</a></li>
+                        <li><a class="active" href="{{ path('app_produit_details', {'categorie': produit.categorie.nom,'id': produit.id}) }}">{{produit.nom}}</a></li>
                     </ol>
                 </div>
             </header>
