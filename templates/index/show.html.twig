@@ -579,7 +579,7 @@ fjs.parentNode.insertBefore(js, fjs);
 
                             <!-- === add to cart === -->
 
-                            <button type="submit" class="btn btn-buy" data-text="Commander"></button>
+                            <a href="{{ path('app_commande', {'categorie': produit.categorie.nom,'id': produit.nom}) }}"><button type="submit" class="btn btn-buy" data-text="Commander"></button></a>
 
 
                             <!-- === product gallery === -->
