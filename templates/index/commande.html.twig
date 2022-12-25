@@ -337,8 +337,33 @@
                                 <div class="login-wrapper">
 
                                     <div class="white-block">
+   <div class="white-block">
+                                  <div class="h4">{{produit.nom}}</div>
+                                  <img src="{{ asset('/uploads/' ~ produit.files[0].path)}}" alt="" height="300" /><br><br>
+                                  <span style=" color:#c1002c;font-weight: 500;">Prix {{produit.prix}} DA</span>
+                                    <hr>
+                                   
+                                    <div class="clearfix">
+                                                     
+                                             <p><strong>Informations:</strong></p>
+                                        <ul>
+                                            <li>Livraison Gratuite et vers toutes les wilayas d'algérie</li>
+                                            <li>Montage Gratuit</li>
+                                            <li>Paiement à la livraison</li>
+                                            
+                                        </ul>
+                                       
+                                    </div>
+                                </div>
+                                       
+                                    </div>
+                                </div> <!--/login-wrapper-->
+                            </div> <!--/col-md-6-->
+                            <!-- === right content === -->
 
-                                        <div class="login-block login-block-signup">
+                            <div class="col-md-6">
+
+                              <div class="login-block login-block-signup">
 
                                             <div class="h4">Coordonnées</div>
 
@@ -380,52 +405,24 @@
                                                    
                                                 </div>
 
-                                                 <button class="btn">{{ button_label|default('Save') }}</button>
+                                               
+                                              
+
+
+                                                <div class="col-md-12">
+                                                    <hr>
+                                                <p class="m-n" style="    color: #898a8c; font-size: 10px;">
+            			                            En utilisant ce site, vous acceptez les <a href="#">Conditions Générales d’Utilisation</a> de mobilierexpress-dz.com, dont <a>la Politique de Confidentialité</a> et <a> la Politique des Cookies</a>, et autorisez le <a>traitement des données à caractère personnel</a>.
+					                            </p>
+                                              
+                                                    <hr>
+                                                </div>
+
+                                                                                                 <button class="btn btn-main btn-block">{{ button_label|default('Passer la commande') }}</button>
+
                                                 {{ form_end(form) }}
-                                              
-
-
-                                                <div class="col-md-12">
-                                                    <hr>
-                                                <p class="m-n" style="    color: #898a8c;
-    font-size: 10px;">
-            			En utilisant ce site, vous acceptez les <a href="#">Conditions Générales d’Utilisation</a> de mobilierexpress-dz.com, dont <a>la Politique de Confidentialité</a> et <a> la Politique des Cookies</a>, et autorisez le <a>traitement des données à caractère personnel</a>.
-					</p>
-                                              
-                                                    <hr>
-                                                </div>
-
-                                                <div class="col-md-12">
-                                                    <a href="#" class="btn btn-main btn-block">Passer la commande</a>
-                                                </div>
-
                                             </div>
                                         </div> <!--/signup-->
-                                    </div>
-                                </div> <!--/login-wrapper-->
-                            </div> <!--/col-md-6-->
-                            <!-- === right content === -->
-
-                            <div class="col-md-6">
-
-                                <div class="white-block">
-                                  <div class="h4">{{produit.nom}}</div>
-                                  <img src="{{ asset('/uploads/' ~ produit.files[0].path)}}" alt="" height="300" /><br><br>
-                                  <span style=" color:#c1002c;font-weight: 500;">Prix {{produit.prix}} DA</span>
-                                    <hr>
-                                   
-                                    <div class="clearfix">
-                                                     
-                                             <p><strong>Informations:</strong></p>
-                                        <ul>
-                                            <li>Livraison Gratuite et vers toutes les wilayas d'algérie</li>
-                                            <li>Montage Gratuit</li>
-                                            <li>Paiement à la livraison</li>
-                                            
-                                        </ul>
-                                       
-                                    </div>
-                                </div>
 
                             </div>
 
