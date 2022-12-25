@@ -119,9 +119,9 @@ class IndexController extends AbstractController
     #[Route('mobilierexpress', name: 'app_about', methods: ['GET'])]
     public function apropos(): Response
     {
-        $produit = $produitsRepository->findOneBy(array('nom'=>$id));
+       
         return $this->render('index/apropos.html.twig', [
-            'produit' => $produit,
+           
         ]);
     }
 
