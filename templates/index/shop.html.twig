@@ -899,10 +899,10 @@ $( ".categorie" ).each(function( index ) {
                 
         });
 
-               $(this).attr('checked','checked');
+               
         
 });
-
+$(".categorie").val($('#categorie option:selected').val()).attr('checked','checked');
 
         });
 
