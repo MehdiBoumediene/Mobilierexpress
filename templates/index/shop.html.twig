@@ -898,11 +898,13 @@ $( ".categorie" ).each(function( index ) {
                 $( "form" ).submit();
                 
         });
-
-               
+if($(this).val() == $('#categorie option:selected').val()){
+$(this).attr('checked','checked');
+}
+              
         
 });
-$(".categorie").val($('#categorie option:selected').val()).attr('checked','checked');
+
 
         });
 
