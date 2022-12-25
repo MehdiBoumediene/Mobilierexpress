@@ -66,9 +66,9 @@ class IndexController extends AbstractController
     }
 
     #[Route('algerie/magasin/meuble/{categorie}/{id}', name: 'app_produit_details', methods: ['GET'])]
-    public function show(Produits $produit): Response
+    public function show(Produits $produit,ProduitsRepository $produitsRepository): Response
     {
-       
+        $produit = $produitsRepository->findOneBy(array('nom'=>$id));
         return $this->render('index/show.html.twig', [
             'produit' => $produit,
         ]);
