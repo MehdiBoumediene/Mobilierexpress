@@ -533,9 +533,9 @@
                                 <div class="entry entry-table">
                                     <div class="date-wrapper">
                                         <div class="date">
-                                            <span>MAR</span>
-                                            <strong>08</strong>
-                                            <span>2017</span>
+                                            <span>{{ news.createdAt ? news.createdAt|date('D') : '' }}</span>
+                                            <strong>{{ news.createdAt ? news.createdAt|date('m') : '' }}</strong>
+                                            <span>{{ news.createdAt ? news.createdAt|date('Y') : '' }}</span>
                                         </div>
                                     </div>
                                     <div class="title">
