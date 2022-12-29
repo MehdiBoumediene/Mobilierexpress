@@ -35,7 +35,11 @@
 		{{ form_errors(form.files) }}</div>
       
 
-    
+    	<div class="col-md-3" >
+
+            {{ form_label(form.videos, 'Videos') }}
+		{{ form_row(form.videos,{'attr': {'class': ''}}) }}
+		{{ form_errors(form.videos) }}</div>
 	<br><br>
     </div>
     </div>

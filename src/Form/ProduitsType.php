@@ -57,6 +57,16 @@ class ProduitsType extends AbstractType
             
             ])
 
+            ->add('videos',FileType::class,[
+                'label' => false,
+                'multiple' => true,
+                'mapped'=> false,
+                'required'=> false,
+                
+        
+            
+            ])
+
         ;
     }
 

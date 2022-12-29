@@ -22,6 +22,9 @@ class Files
     #[ORM\ManyToOne(inversedBy: 'files', targetEntity: Produits::class, cascade: ['all'])]
     private $produit;
 
+    #[ORM\ManyToOne(targetEntity: News::class, inversedBy: 'files')]
+    private $news;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -47,6 +50,18 @@ class Files
     public function setProduit(?Produits $produit): self
     {
         $this->produit = $produit;
+
+        return $this;
+    }
+
+    public function getNews(): ?News
+    {
+        return $this->news;
+    }
+
+    public function setNews(?News $news): self
+    {
+        $this->news = $news;
 
         return $this;
     }

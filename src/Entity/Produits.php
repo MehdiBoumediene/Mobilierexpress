@@ -48,10 +48,14 @@ class Produits
     #[ORM\Column(type: 'boolean', nullable: true)]
     private $dispo;
 
+    #[ORM\OneToMany(mappedBy: 'produits', targetEntity: Videos::class)]
+    private $videos;
+
     public function __construct()
     {
         $this->files = new ArrayCollection();
         $this->commandes = new ArrayCollection();
+        $this->videos = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -199,6 +203,36 @@ class Produits
     public function setDispo(?bool $dispo): self
     {
         $this->dispo = $dispo;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Videos>
+     */
+    public function getVideos(): Collection
+    {
+        return $this->videos;
+    }
+
+    public function addVideo(Videos $video): self
+    {
+        if (!$this->videos->contains($video)) {
+            $this->videos[] = $video;
+            $video->setProduits($this);
+        }
+
+        return $this;
+    }
+
+    public function removeVideo(Videos $video): self
+    {
+        if ($this->videos->removeElement($video)) {
+            // set the owning side to null (unless already changed)
+            if ($video->getProduits() === $this) {
+                $video->setProduits(null);
+            }
+        }
 
         return $this;
     }

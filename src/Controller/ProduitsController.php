@@ -52,7 +52,23 @@ class ProduitsController extends AbstractController
             
                 $produit->addFile($file);
             }
-         
+            $files = $form->get('videos')->getData();
+            foreach($videos as $video){
+                // Je génère un nouveau nom de fichier
+                $fichier = md5(uniqid()) . '.' . $video->guessExtension();
+
+                // Je copie le fichier dans le dossier uploads
+                $video->move(
+                    $this->getParameter('videos_directory'),
+                    $fichier
+                );
+
+                // Je stocke le document dans la BDD (nom du fichier)
+                $video= new Videos();
+                $video->setPath($fichier);
+            
+                $produit->addFile($video);
+            }
             $produitsRepository->add($produit, true);
 
          
