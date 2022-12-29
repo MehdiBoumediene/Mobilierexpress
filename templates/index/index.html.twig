@@ -523,23 +523,23 @@
                 <div class="row">
 
                     <!-- === blog item === -->
-{% for news in news %}
+{% for new in news %}
                     <div class="col-sm-4">
                         <article>
                             <a href="article.html">
-                                <div class="image" style="background-image:url({{ asset('/uploads/' ~ news.files[0].path)}})">
-                                    <img src="{{ asset('/uploads/' ~ news.files[0].path)}}" alt="{{news.titre}}" />
+                                <div class="image" style="background-image:url({{ asset('/uploads/' ~ new.files[0].path)}})">
+                                    <img src="{{ asset('/uploads/' ~ new.files[0].path)}}" alt="{{new.titre}}" />
                                 </div>
                                 <div class="entry entry-table">
                                     <div class="date-wrapper">
                                         <div class="date">
-                                            <span>{{ news.createdAt ? news.createdAt|date('D') : '' }}</span>
-                                            <strong>{{ news.createdAt ? news.createdAt|date('m') : '' }}</strong>
-                                            <span>{{ news.createdAt ? news.createdAt|date('Y') : '' }}</span>
+                                            <span>{{ new.createdAt ? news.createdAt|date('D') : '' }}</span>
+                                            <strong>{{ new.createdAt ? news.createdAt|date('m') : '' }}</strong>
+                                            <span>{{ new.createdAt ? news.createdAt|date('Y') : '' }}</span>
                                         </div>
                                     </div>
                                     <div class="title">
-                                        <h2 class="h5">{{news.titre}}</h2>
+                                        <h2 class="h5">{{new.titre}}</h2>
                                     </div>
                                 </div>
                                 <div class="show-more">
