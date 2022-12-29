@@ -31,6 +31,25 @@ class NewsController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $date = new \DateTimeImmutable('now');
             $news->setCreatedAt($date);
+
+            $files = $form->get('files')->getData();
+            foreach($files as $file){
+                // Je génère un nouveau nom de fichier
+                $fichier = md5(uniqid()) . '.' . $file->guessExtension();
+
+                // Je copie le fichier dans le dossier uploads
+                $file->move(
+                    $this->getParameter('videos_directory'),
+                    $fichier
+                );
+
+                // Je stocke le document dans la BDD (nom du fichier)
+                $file= new Files();
+                $file->setPath($fichier);
+            
+                $news->addFile($file);
+            }
+
             $newsRepository->add($news, true);
 
             return $this->redirectToRoute('app_news_index', [], Response::HTTP_SEE_OTHER);
