@@ -264,7 +264,7 @@
                                 <div class="image">
                                     <a href="#productid{{produit.id}}" class="mfp-open">
                                     {% if produit.files %}
-                                        <img src="{{ asset('/uploads/' ~ produit.files[0].path)}}" alt="" height="300" />
+                                        <img src="{{ asset('/uploads/' ~ produit.files[0].path)}}" alt="{{produit.categorie.nom}} {{produit.nom}}" height="300" />
                                     {% endif %}
                                     </a>
                                 </div>
@@ -308,7 +308,7 @@
 
                         <div class="owl-product-gallery">
                         {% for image in produit.files %}
-                            <img src="{{ asset('/uploads/' ~ image.path)}}" alt="" width="640" />
+                            <img src="{{ asset('/uploads/' ~ image.path)}}" alt="{{produit.categorie.nom}} {{produit.nom}}" width="640" />
                   
                             {% endfor %}
                         </div>
@@ -523,12 +523,12 @@
                 <div class="row">
 
                     <!-- === blog item === -->
-
+{% for news in news %}
                     <div class="col-sm-4">
                         <article>
                             <a href="article.html">
-                                <div class="image" style="background-image:url(assets/images/blog-1.jpg)">
-                                    <img src="assets/images/blog-1.jpg" alt="" />
+                                <div class="image" style="background-image:url({{ asset('/uploads/' ~ news.files[0].path)}})">
+                                    <img src="{{ asset('/uploads/' ~ news.files[0].path)}}" alt="{{news.titre}}" />
                                 </div>
                                 <div class="entry entry-table">
                                     <div class="date-wrapper">
@@ -539,16 +539,16 @@
                                         </div>
                                     </div>
                                     <div class="title">
-                                        <h2 class="h5">The 3 Tricks that Quickly Became Rules</h2>
+                                        <h2 class="h5">{{news.titre}}</h2>
                                     </div>
                                 </div>
                                 <div class="show-more">
-                                    <span class="btn btn-main btn-block">Read more</span>
+                                    <span class="btn btn-main btn-block">Lire la suite</span>
                                 </div>
                             </a>
                         </article>
                     </div>
-
+{% endfor %}
                     <!-- === blog item === -->
 
                     <div class="col-sm-4">

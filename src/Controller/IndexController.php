@@ -7,6 +7,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Form\CommandesType;
 use App\Repository\CommandesRepository;
+use App\Repository\NewsRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Knp\Component\Pager\PaginatorInterface;
 use App\Entity\Produits;
@@ -21,13 +22,14 @@ use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 class IndexController extends AbstractController
 {
     #[Route('/', name: 'app_index')]
-    public function index(ProduitsRepository $produitsRepository): Response
+    public function index(ProduitsRepository $produitsRepository,NewsRepository $newsRepository): Response
     {
         $produits = $produitsRepository->findBy(array('accueil'=>true),array('id' => 'DESC'));
-        
+        $news = $newsRepository->findAll();
         return $this->render('index/index.html.twig', [
             'controller_name' => 'IndexController',
-            'produits'=> $produits
+            'produits'=> $produits,
+            'news'=> $news
         ]);
     }
 
