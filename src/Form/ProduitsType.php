@@ -25,9 +25,11 @@ class ProduitsType extends AbstractType
             ])
             ->add('dispo',CheckboxType::class, [
                 'label' => 'Disponible ',
+                'required'=>false,
             ])
             ->add('accueil',CheckboxType::class, [
-                'label' => "Afficher à l'accueil "
+                'label' => "Afficher à l'accueil ",
+                'required'=>false,
             ])
             ->remove('slug')
             ->add('categorie', EntityType::class, [
