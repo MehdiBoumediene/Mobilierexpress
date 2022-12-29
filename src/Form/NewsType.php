@@ -38,7 +38,7 @@ class NewsType extends AbstractType
                 ])
             ->add('created_at',DateTimeType::class,[
                 'widget' => "single_text",
-                'format' => 'yyyy-MM-dd H:mm',
+                
                 'data' => new \DateTime("now")
             ])
             
