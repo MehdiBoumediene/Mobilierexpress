@@ -37,9 +37,7 @@
 				<ul class="vertical-nav-menu">
 					<li class="app-sidebar__heading"></li>
 					<li>
-						<a href="{{path('app_index')}}" {% if route_name == "app_index" %} class="mm-active" {% else %} class=" " {% endif %} aria-expanded="false">
-							<i class="metismenu-icon pe-7s-diamond"></i>Tableau de bord
-						</a>
+					
 					</li>
 					{% if is_granted('ROLE_ADMIN') %}
 
