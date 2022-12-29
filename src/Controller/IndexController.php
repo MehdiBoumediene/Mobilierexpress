@@ -46,8 +46,12 @@ class IndexController extends AbstractController
         $categorie = $form->get('categorie')->getData();
         
 
-       
+       if($categorie){
         $produits =  $produitsRepository->findBy(array('categorie'=>$categorie));
+       }else{
+        $produits =  $produitsRepository->findAll();
+       }
+        
 
         $produits = $paginator->paginate(
             $produits, // Requête contenant les données à paginer (ici nos articles)
