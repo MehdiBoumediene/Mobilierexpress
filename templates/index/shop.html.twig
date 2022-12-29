@@ -662,7 +662,7 @@
                                                 </div>
                                                 <div style="padding-left:8px;">
                                             
-                                                <h2 class="title h4" style="margin-top:8px;margin-bottom:0;padding:0;"><a href="{{ path('app_produit_details', {'categorie': produit.categorie.nom,'id': produit.id}) }}" style="color:#14233c;">{{produit.nom}}</a></h2>
+                                                <h2 class="title h4" style="margin-top:8px;margin-bottom:0;padding:0;"><a href="{{ path('app_produit_details', {'categorie': produit.categorie.nom,'id': produit.nom}) }}" style="color:#14233c;">{{produit.nom}}</a></h2>
 
                                                     <span style="color:black;">{{ produit.categorie.nom }}</span>
                                                 
@@ -756,7 +756,7 @@
                             </div>
                             <div class="popup-cell">
                                 <div class="popup-buttons">
-                                    <a href="{{ path('app_produit_details', {'categorie': produit.categorie.nom,'id': produit.id}) }}"><span class="icon icon-eye"></span> <span class="hidden-xs">Détails</span></a>
+                                    <a href="{{ path('app_produit_details', {'categorie': produit.categorie.nom,'id': produit.nom}) }}"><span class="icon icon-eye"></span> <span class="hidden-xs">Détails</span></a>
                                     <a href="javascript:void(0);"><span class="icon icon-cart"></span> <span class="hidden-xs">Commander</span></a>
                                 </div>
                             </div>
