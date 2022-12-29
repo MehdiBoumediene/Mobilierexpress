@@ -1,0 +1,261 @@
+{% block top %}
+        <div class="inc:_header.html"><!-- ==================  Navigation (main menu) ================== -->
+ 
+            
+                    <!--Use class "navbar-fixed" or "navbar-default" -->
+                    <!--If you use "navbar-fixed" it will be sticky menu on scroll (only for large screens)-->
+            
+                    <!-- ======================== Navigation ======================== -->
+            
+                    <nav class="navbar-fixed navbar-sticked">
+            
+                        <div class="container">
+            
+                            <!-- ==========  Top navigation ========== -->
+            
+                            <div class="navigation navigation-top clearfix">
+                                <ul>
+                                    <!--add active class for current page-->
+            
+                                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-youtube"></i></a></li>
+            
+                        
+                              
+                                   
+                                </ul>
+                            </div> <!--/navigation-top-->
+            
+                            <!-- ==========  Main navigation ========== -->
+            
+                            <div class="navigation navigation-main">
+            
+                                <!-- Setup your logo here-->
+            
+                                <a href="{{path('app_index')}}" class="logo"><img width="100%" src="assets/images/logo.svg" alt=""></a>
+            
+                                <!-- Mobile toggle menu -->
+            
+                                <a href="#" class="open-menu"><i class="icon icon-menu"></i></a>
+            
+                                <!-- Convertible menu (mobile/desktop)-->
+            
+                                <div class="floating-menu">
+            
+                                    <!-- Mobile toggle menu trigger-->
+            
+                                    <div class="close-menu-wrapper">
+                                        <span class="close-menu"><i class="icon icon-cross"></i></span>
+                                    </div>
+            
+                                    <ul>
+                                    <li><a href="{{path('app_index')}}">Accueil</a></li>
+                                        <li><a href="{{path('app_about')}}">Mobilier Express</a></li>
+                                        
+                                        <!-- Multi-content dropdown -->
+            
+                                
+            
+                                    
+            
+                                        <!-- Furniture icons in dropdown-->
+            
+                                        <li>
+                                            <a title="Magasin de meuble Algérie" href="{{path('app_shop')}}">Nos produits <span class="open-dropdown"><i class="fa fa-angle-down"></i></span></a>
+                                            <div class="navbar-dropdown">
+                                                <div class="navbar-box">
+            
+                                                    <!-- box-1 (left-side)-->
+            
+                                                    <div class="box-1">
+                                                      
+                                                        <div class="box">
+                                                            <div class="h2">Nos produits</div>
+                                                            <div class="clearfix">
+                                                                <p> Une large gamme de produits,  des prix imbattables, designs uniques exporez notre magasin et commander dés maintenant votre meuble.</p>
+                                                                <a class="btn btn-clean btn-big" href="{{path('app_shop')}}">Explorer</a>
+                                                            </div>
+                                                        </div>
+                                                    </div> <!--/box-1-->
+            
+                                                    <!-- box-2 (right-side)-->
+            
+                                                    <div class="box-2">
+                                                        <div class="clearfix categories">
+                                                            <div class="row">
+                                                                
+                                                                <!--icon item-->                                                
+            
+                                                                <div class="col-sm-3 col-xs-6">
+                                                                    <a href="javascript:void(0);">
+                                                                        <figure>
+                                                                            <i class="f-icon f-icon-sofa"></i>
+                                                                            <figcaption>Canapé</figcaption>
+                                                                        </figure>
+                                                                    </a>
+                                                                </div>
+                                                                
+                                                                <!--icon item-->                                                
+            
+                                                                <div class="col-sm-3 col-xs-6">
+                                                                    <a href="javascript:void(0);">
+                                                                        <figure>
+                                                                            <i class="f-icon f-icon-armchair"></i>
+                                                                            <figcaption>Fauteuil</figcaption>
+                                                                        </figure>
+                                                                    </a>
+                                                                </div>
+                                                                
+                                                                <!--icon item-->                                                
+            
+                                                              
+                                                                
+                                                                <!--icon item-->                                                
+            
+                                                                <div class="col-sm-3 col-xs-6">
+                                                                    <a href="javascript:void(0);">
+                                                                        <figure>
+                                                                            <i class="f-icon f-icon-dining-table"></i>
+                                                                            <figcaption>Table à manger</figcaption>
+                                                                        </figure>
+                                                                    </a>
+                                                                </div>
+                                                                
+                                                         
+                                                                
+                                                                <!--icon item-->                                                
+            
+                                                                <div class="col-sm-3 col-xs-6">
+                                                                    <a href="javascript:void(0);">
+                                                                        <figure>
+                                                                            <i class="f-icon f-icon-table"></i>
+                                                                            <figcaption>Table basse</figcaption>
+                                                                        </figure>
+                                                                    </a>
+                                                                </div>
+
+                                                                
+                                                                <div class="col-sm-3 col-xs-6">
+                                                                    <a href="javascript:void(0);">
+                                                                        <figure>
+                                                                            <i class="f-icon f-icon-media-cabinet"></i>
+                                                                            <figcaption>Table TV</figcaption>
+                                                                        </figure>
+                                                                    </a>
+                                                                </div>
+                                                                
+                                                                                                     
+            
+                                                             
+                                                                
+                                                                <!--icon item-->                                                
+            
+                                                                <div class="col-sm-3 col-xs-6">
+                                                                    <a href="javascript:void(0);">
+                                                                        <figure>
+                                                                            <i class="f-icon f-icon-bedroom"></i>
+                                                                            <figcaption>Chambre</figcaption>
+                                                                        </figure>
+                                                                    </a>
+                                                                </div>
+                                                                
+                                                                <!--icon item-->                                                
+            
+                                                                <div class="col-sm-3 col-xs-6">
+                                                                    <a href="javascript:void(0);">
+                                                                        <figure>
+                                                                            <i class="f-icon f-icon-nightstand"></i>
+                                                                            <figcaption>Table de nuit</figcaption>
+                                                                        </figure>
+                                                                    </a>
+                                                                </div>
+                                                                
+                                                                <!--icon item-->                                                
+            
+                                                                <div class="col-sm-3 col-xs-6">
+                                                                    <a href="javascript:void(0);">
+                                                                        <figure>
+                                                                            <i class="f-icon f-icon-children-room"></i>
+                                                                            <figcaption>Chambre enfant</figcaption>
+                                                                        </figure>
+                                                                    </a>
+                                                                </div>
+                                                                
+                                                                <!--icon item-->                                                
+            
+                                                                
+                                                                
+                                                                <!--icon item-->                                                
+            
+                                                                <div class="col-sm-3 col-xs-6">
+                                                                    <a href="javascript:void(0);">
+                                                                        <figure>
+                                                                            <i class="f-icon f-icon-bathroom"></i>
+                                                                            <figcaption>Salle de bain</figcaption>
+                                                                        </figure>
+                                                                    </a>
+                                                                </div>
+                                                                
+                                                                <!--icon item-->                                                
+            
+                                                                <div class="col-sm-3 col-xs-6">
+                                                                    <a href="javascript:void(0);">
+                                                                        <figure>
+                                                                            <i class="f-icon f-icon-wardrobe"></i>
+                                                                            <figcaption>Dressing</figcaption>
+                                                                        </figure>
+                                                                    </a>
+                                                                </div>
+                                                                
+                                                                <!--icon item-->                                                
+            
+                                                                <div class="col-sm-3 col-xs-6">
+                                                                    <a href="javascript:void(0);">
+                                                                        <figure>
+                                                                            <i class="f-icon f-icon-shoe-cabinet"></i>
+                                                                            <figcaption>Meuble d'entrée</figcaption>
+                                                                        </figure>
+                                                                    </a>
+                                                                </div>
+                                                                
+                                                                <!--icon item-->                                                
+            
+                                                                <div class="col-sm-3 col-xs-6">
+                                                                    <a href="javascript:void(0);">
+                                                                        <figure>
+                                                                            <i class="f-icon f-icon-office"></i>
+                                                                            <figcaption>Bureau</figcaption>
+                                                                        </figure>
+                                                                    </a>
+                                                                </div>
+                                                                
+                                                               
+                                                              
+                                                                
+                                                              
+                                                            </div> <!--/row-->
+                                                        </div> <!--/categories-->
+                                                    </div> <!--/box-2-->
+                                                </div> <!--/navbar-box-->
+                                            </div> <!--/navbar-dropdown-->
+                                        </li>
+            
+                                        <!-- Simple menu link-->
+            
+                                        <li><a href="">Contact</a></li>
+                                    </ul>
+                                </div> <!--/floating-menu-->
+                            </div> <!--/navigation-main-->
+            
+                     
+            
+                    
+    
+            
+                   
+                        </div> <!--/container-->
+                    </nav>
+        </div>
+
+        {% endblock %}
