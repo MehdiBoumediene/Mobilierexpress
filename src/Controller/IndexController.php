@@ -8,7 +8,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use App\Form\CommandesType;
 use App\Repository\CommandesRepository;
 use Symfony\Component\HttpFoundation\Request;
-
+use Knp\Component\Pager\PaginatorInterface;
 use App\Entity\Produits;
 use App\Entity\Commandes;
 use App\Repository\ProduitsRepository;
@@ -33,7 +33,7 @@ class IndexController extends AbstractController
 
 
     #[Route('algerie/magasin/meuble', name: 'app_shop', methods: ['GET', 'POST'])]
-    public function shop(Request $request,ProduitsRepository $produitsRepository,CategoriesRepository $categoriesRepository): Response
+    public function shop(Request $request,ProduitsRepository $produitsRepository,CategoriesRepository $categoriesRepository, PaginatorInterface $paginator): Response
     {
         $produits = $produitsRepository->findAll();
         $categories = $categoriesRepository->findAll();
