@@ -39,9 +39,7 @@
 					<li>
 					
 					</li>
-					{% if is_granted('ROLE_ADMIN') %}
-
-						{% if app.user.roles[0] == "ROLE_ADMIN" %}
+			
 
 							<li {% if route_name == "app_classes_index" %} class="mm-active" {% elseif route_name == "app_classes_edit" %} class="mm-active" {% elseif route_name == "app_classes_show" %} class="mm-active" {% elseif route_name == "app_classes_new" %} class="mm-active" {% elseif route_name == "app_blocs_index" %} class="mm-active" {% elseif route_name == "app_blocs_new" %} class="mm-active" {% elseif route_name == "app_blocs_edit" %} class="mm-active" {% elseif route_name == "app_blocs_show" %} class="mm-active" {% elseif route_name == "app_modules_index" %} class="mm-active" {% elseif route_name == "app_modules_new" %} class="mm-active" {% elseif route_name == "app_modules_edit" %} class="mm-active" {% elseif route_name == "app_modules_show" %} class="mm-active" {% elseif route_name == "app_intervenants_index" %} class="mm-active" {% elseif route_name == "app_intervenants_new" %} class="mm-active" {% elseif route_name == "app_intervenants_edit" %} class="mm-active" {% elseif route_name == "app_intervenants_show" %} class="mm-active" {% elseif route_name == "app_etudiants_index" %} class="mm-active" {% elseif route_name == "app_etudiants_new" %} class="mm-active" {% elseif route_name == "app_etudiants_edit" %} class="mm-active" {% elseif route_name == "app_etudiants_show" %} class="mm-active" {% elseif route_name == "app_entreprises_index" %} class="mm-active" {% elseif route_name == "app_entreprises_new" %} class="mm-active" {% elseif route_name == "app_entreprises_edit" %} class="mm-active" {% elseif route_name == "app_entreprises_show" %} class="mm-active" {% elseif route_name == "app_tuteurs_index" %} class="mm-active" {% elseif route_name == "app_tuteurs_new" %} class="mm-active" {% elseif route_name == "app_tuteurs_edit" %} class="mm-active" {% elseif route_name == "app_tuteurs_show" %} class="mm-active" {% elseif route_name == "app_users_index" %} class="mm-active" {% elseif route_name == "app_users_new" %} class="mm-active" {% elseif route_name == "app_users_edit" %} class="mm-active" {% elseif route_name == "app_users_show" %} class="mm-active" {% elseif route_name == "app_gestion_calendrier" %} class="mm-active" {% elseif route_name == "app_absences_index" %} class="mm-active" {% elseif route_name == "app_absences_new" %} class="mm-active" {% elseif route_name == "app_tableau_absences_edit" %} class="mm-active" {% elseif route_name == "app_notes_index" %} class="mm-active"  {% elseif route_name == "app_notes_new" %} class="mm-active" {% elseif route_name == "app_tableau_notes_edit" %} class="mm-active"  {% else %} class=" " {% endif %}>
 								<a href="#">
@@ -50,21 +48,15 @@
 									<i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
 								</a>
 								<ul>
-									<li><a href="{{path('app_categories_index')}}"{% if route_name == "app_classes_index" %} class="mm-active"{% elseif route_name == "app_classes_new" %} class="mm-active"{% elseif route_name == "app_classes_edit" %} class="mm-active"{% elseif route_name == "app_classes_show" %} class="mm-active"{% else %} class=" "{% endif %}><i class="metismenu-icon pe-7s-display2"></i> Liste des classes<i class="metismenu-state-icon "></i></a></li>
+									<li><a href="{{path('app_categories_index')}}"><i class="metismenu-icon pe-7s-display2"></i> Liste des categories<i class="metismenu-state-icon "></i></a></li>
 
-									<li><a href="{{path('app_produits_index')}}"{% if route_name == "app_blocs_index" %} class="mm-active"{% elseif route_name == "app_blocs_new" %} class="mm-active"{% elseif route_name == "app_blocs_edit" %} class="mm-active"{% elseif route_name == "app_blocs_show" %} class="mm-active"{% else %} class=" "{% endif %}><i class="metismenu-icon pe-7s-display2"></i>Liste des blocs<i class="metismenu-state-icon "></i></a></li>
+									<li><a href="{{path('app_produits_index')}}"><i class="metismenu-icon pe-7s-display2"></i> Liste des produits<i class="metismenu-state-icon "></i></a></li>
 
 								</ul>
 							</li>
 
 							
-						
-
-						{% endif %}
-
-						{% else %}
-
-					{% endif %}
+					
 			
 				</div>
 			</div>
