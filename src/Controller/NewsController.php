@@ -10,7 +10,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-#[Route('/news')]
+#[Route('/admin/news')]
 class NewsController extends AbstractController
 {
     #[Route('/', name: 'app_news_index', methods: ['GET'])]
