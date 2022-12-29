@@ -26,7 +26,7 @@ class News
     #[ORM\Column(type: 'datetime', nullable: true)]
     private $created_at;
 
-    #[ORM\OneToMany(mappedBy: 'news', targetEntity: Files::class)]
+    #[ORM\OneToMany(mappedBy: 'news', targetEntity: Files::class, cascade: ['all'])]
     private $files;
 
     public function __construct()
