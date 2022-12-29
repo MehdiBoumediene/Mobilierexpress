@@ -24,7 +24,7 @@ class IndexController extends AbstractController
     public function index(ProduitsRepository $produitsRepository): Response
     {
         $produits = $produitsRepository->findBy(array('accueil'=>true),array('id' => 'DESC'));
-
+        
         return $this->render('index/index.html.twig', [
             'controller_name' => 'IndexController',
             'produits'=> $produits
@@ -49,7 +49,11 @@ class IndexController extends AbstractController
        
         $produits =  $produitsRepository->findBy(array('categorie'=>$categorie));
 
-
+        $produits = $paginator->paginate(
+            $produits, // Requête contenant les données à paginer (ici nos articles)
+            $request->query->getInt('page', 1), // Numéro de la page en cours, passé dans l'URL, 1 si aucune page
+            10 // Nombre de résultats par page
+        );
 
             return $this->renderForm('index/shop.html.twig', [
                 'produits' => $produits,
@@ -57,6 +61,12 @@ class IndexController extends AbstractController
                 'form' => $form,
             ]);
         }
+
+        $produits = $paginator->paginate(
+            $produits, // Requête contenant les données à paginer (ici nos articles)
+            $request->query->getInt('page', 1), // Numéro de la page en cours, passé dans l'URL, 1 si aucune page
+            10 // Nombre de résultats par page
+        );
 
         return $this->renderForm('index/shop.html.twig', [
             'categories'=> $categories,
