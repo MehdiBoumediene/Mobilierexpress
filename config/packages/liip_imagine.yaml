@@ -5,20 +5,6 @@ liip_imagine:
             # use %kernel.project_dir%/web for Symfony prior to 4.0.0
             web_root: "%kernel.project_dir%/public/"
             cache_prefix: "uploads/cache"
-
-
-    driver:               gd
-
-    controller:
-        filter_action:          liip_imagine.controller:filterAction
-        filter_runtime_action:  liip_imagine.controller:filterRuntimeAction
-        redirect_response_code: 302
-    webp:
-        generate:    true
-        quality:     100
-        cache:       profile_photos
-        data_loader: ~
-        post_processors: []
         
     filter_sets:
         cache: ~
