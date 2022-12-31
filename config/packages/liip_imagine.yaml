@@ -1,30 +1,14 @@
 liip_imagine:
-    resolvers:
-        default:
-            web_path: ~
-    filter_sets:
-        cache: ~
-
-        # the name of the "filter set"
-        my_thumb:
-
-            # adjust the image quality to 75%
-            quality: 75
-
-            # list of transformations to apply (the "filters")
-            filters:
-                # create a thumbnail: set size to 120x90 and use the "outbound" mode
-                # to crop the image when the size ratio of the input differs
-                thumbnail: { size: [360, 300], mode: outbound }
-
-        
-
-    controller:
-        redirect_response_code: 302
 
     webp:
         generate: true
+
     filter_sets:
+        my_thumb_jpeg:
+            format: jpeg
+            quality: 80
+            filters:
+                thumbnail: { size: [360, 300], mode: inset }
         my_thumb_webp:
             format: webp
             quality: 100
