@@ -3,7 +3,7 @@ liip_imagine:
         default:
             web_path:
                 web_root: "%kernel.project_dir%/public/uploads"
-                cache_prefix: "images/cache"
+                cache_prefix: "cache"
     loaders:
         default:
             filesystem:

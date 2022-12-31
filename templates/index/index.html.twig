@@ -265,7 +265,7 @@
                                 <div class="image">
                                     <a href="#productid{{produit.id}}" class="mfp-open">
                                     {% if produit.files %}
-                                        <img data-src="{{ asset('/uploads/' ~ produit.files[0].path)  | imagine_filter('my_thumb_webp') }}" alt="{{produit.categorie.nom}} {{produit.nom}}" height="300" class="lazyload" />
+                                        <img data-src="{{ asset('/uploads/' ~ produit.files[0].path)}}" alt="{{produit.categorie.nom}} {{produit.nom}}" height="300" class="lazyload" />
                                     {% endif %}
                                     </a>
                                 </div>
