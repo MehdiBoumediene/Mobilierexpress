@@ -45,9 +45,9 @@ liip_imagine:
             format: jpeg
             quality: 80
             filters:
-                thumbnail: { size: [223, 223], mode: inset }
+                thumbnail: { size: [360, 300], mode: inset }
         my_thumb_webp:
             format: webp
             quality: 100
             filters:
-                thumbnail: { size: [223, 223], mode: inset }
+                thumbnail: { size: [360, 300], mode: inset }
