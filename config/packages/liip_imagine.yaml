@@ -16,7 +16,7 @@ liip_imagine:
     webp:
         generate:    false
         quality:     100
-        cache:       ~
+        cache:       photo
         data_loader: ~
         post_processors: []
         
