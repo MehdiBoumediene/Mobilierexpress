@@ -1,9 +1,10 @@
 liip_imagine:
-    loaders:
-        default:
-            filesystem:
-                data_root:
-                    - '%kernel.project_dir%/public/'
+    resolvers:
+       profile_photos:
+          web_path:
+            # use %kernel.project_dir%/web for Symfony prior to 4.0.0
+            web_root: "%kernel.project_dir%/public/"
+            cache_prefix: "uploads/cache"
 
 
     driver:               gd
@@ -23,7 +24,6 @@ liip_imagine:
         my_thumb_jpeg:
             format: jpeg
             quality: 80
-        
             filters:
                 thumbnail: { size: [360, 300], mode: inset }
         my_thumb_webp:
