@@ -265,7 +265,7 @@
                                 <div class="image">
                                     <a href="#productid{{produit.id}}" class="mfp-open">
                                     {% if produit.files %}
-                                        <img src="{{ asset('/uploads/' ~ produit.files[0].path)}}" alt="{{produit.categorie.nom}} {{produit.nom}}" height="300" />
+                                        <img class="lazyload" src="{{ asset('/uploads/' ~ produit.files[0].path)}}" alt="{{produit.categorie.nom}} {{produit.nom}}" height="300" />
                                     {% endif %}
                                     </a>
                                 </div>
@@ -309,7 +309,7 @@
 
                         <div class="owl-product-gallery">
                         {% for image in produit.files %}
-                            <img src="{{ asset('/uploads/' ~ image.path)}}" alt="{{produit.categorie.nom}} {{produit.nom}}" width="640" />
+                            <img class="lazyload" src="{{ asset('/uploads/' ~ image.path)}}" alt="{{produit.categorie.nom}} {{produit.nom}}" width="640" />
                   
                             {% endfor %}
                         </div>
@@ -527,9 +527,9 @@
 {% for new in news %}
                     <div class="col-sm-4">
                         <article>
-                            <a href="article.html">
+                            <a href="#">
                                 <div class="image" style="background-image:url({{ asset('/uploads/' ~ new.files[0].path)}})">
-                                    <img src="{{ asset('/uploads/' ~ new.files[0].path)}}" alt="{{new.titre}}" />
+                                    <img class="lazyload" src="{{ asset('/uploads/' ~ new.files[0].path)}}" alt="{{new.titre}}" class="lazyload"/>
                                 </div>
                                 <div class="entry entry-table">
                                     <div class="date-wrapper">
