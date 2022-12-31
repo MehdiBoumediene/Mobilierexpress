@@ -23,12 +23,11 @@ liip_imagine:
         my_thumb_jpeg:
             format: jpeg
             quality: 80
-            cache: profile_photos
+        
             filters:
                 thumbnail: { size: [360, 300], mode: inset }
         my_thumb_webp:
             format: webp
             quality: 100
-            cache: profile_photos
             filters:
                 thumbnail: { size: [360, 300], mode: inset }
