@@ -1,53 +1,8 @@
 liip_imagine:
-
-    resolvers:
-        default:
-            web_path:
-                web_root: ~ %kernel.project_dir%/public 
-                cache_prefix: media/cache
-
-    loaders:
-        default:
-            filesystem:
-                data_root: ~ %kernel.project_dir%/public 
-
-    driver:               gd
-    cache:                default
-    data_loader:          default
-    default_image:        null
-    twig:
-        mode:             legacy
-    default_filter_set_settings:
-        quality:              100
-        jpeg_quality:         ~
-        png_compression_level:  ~
-        png_compression_filter: ~
-        animated:             false
-        format:               ~
-        cache:                ~
-        data_loader:          ~
-        default_image:        null
-        filters: []
-        post_processors: []
-    controller:
-        filter_action:          liip_imagine.controller:filterAction
-        filter_runtime_action:  liip_imagine.controller:filterRuntimeAction
-        redirect_response_code: 302
-    webp:
-        generate:    false
-        quality:     100
-        cache:       ~
-        data_loader: ~
-        post_processors: []
-        
     filter_sets:
-        my_thumb_jpeg:
-            format: jpeg
-            quality: 80
+        squared_thumbnail_small:
             filters:
-                thumbnail: { size: [360, 300], mode: inset }
-        my_thumb_webp:
-            format: webp
-            quality: 100
-            filters:
-                thumbnail: { size: [360, 300], mode: inset }
+                thumbnail:
+                    size:          [200, 200]
+                    mode:          outbound
+                    allow_upscale: true

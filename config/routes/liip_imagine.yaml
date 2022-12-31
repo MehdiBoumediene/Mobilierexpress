@@ -1,8 +1,2 @@
-liip_imagine:
-    filter_sets:
-        squared_thumbnail_small:
-            filters:
-                thumbnail:
-                    size:          [360, 300]
-                    mode:          outbound
-                    allow_upscale: true
+_liip_imagine:
+    resource: "@LiipImagineBundle/Resources/config/routing.yaml"
