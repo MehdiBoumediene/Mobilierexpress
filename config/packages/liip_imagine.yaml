@@ -3,8 +3,8 @@ liip_imagine:
        profile_photos:
           web_path:
             # use %kernel.project_dir%/web for Symfony prior to 4.0.0
-            web_root: "%kernel.project_dir%/public/uploads"
-            cache_prefix: "media/cache"
+            web_root: "%kernel.project_dir%/public"
+           
 
 
     driver:               gd
