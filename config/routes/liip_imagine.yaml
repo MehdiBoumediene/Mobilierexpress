@@ -1,2 +1,12 @@
 _liip_imagine:
     resource: "@LiipImagineBundle/Resources/config/routing.yaml"
+    
+liip_imagine_filter:
+    path:  /media/cache/{filter}/{path}
+    defaults:
+        _controller: '%liip_imagine.controller.filter_action%'
+    methods:
+        - GET
+    requirements:
+        filter: '[A-z0-9_-]*'
+        path: .+
