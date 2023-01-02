@@ -132,7 +132,7 @@ class IndexController extends AbstractController
        
             $mailer->send($email);
 
-            return $this->redirectToRoute('app_commande', ['id'=>$id], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('app_shop');
         }
 
         return $this->renderForm('index/commande.html.twig', [
