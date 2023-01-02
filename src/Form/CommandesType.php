@@ -84,7 +84,7 @@ class CommandesType extends AbstractType
                 ])
             ->add('produit', EntityType::class, [
                 'class' => Produits::class,
-                'choice_value' => ChoiceList::value($this, 'nom'),
+                'choice_value' => ChoiceList::value($this, 'id'),
                 'query_builder' => function (EntityRepository $er) {
                     return $er->createQueryBuilder('u')
                         ->orderBy('u.nom', 'ASC');
