@@ -1,0 +1,8 @@
+<VirtualHost *:80>
+    <!-- Rest of directives like DocumentRoot or ServerName -->
+
+    <Directory "/public/uploads">
+        AllowOverride None
+        Allow from All
+    </Directory>
+</VirtualHost>
