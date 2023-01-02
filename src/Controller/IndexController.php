@@ -102,7 +102,7 @@ class IndexController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
 
 
-            $commande-setNom($form->get('nom')->getData());
+            $commande->setNom($form->get('nom')->getData());
             $commandesRepository->add($commande, true);
 
             $email = (new TemplatedEmail())
