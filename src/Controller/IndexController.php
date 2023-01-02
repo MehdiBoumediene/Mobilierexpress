@@ -108,7 +108,7 @@ class IndexController extends AbstractController
             $commande->setTelephone($form->get('telephone')->getData());
             $commande->setEmail($form->get('Email')->getData());
             $commande->setAdresse($form->get('adresse')->getData());
-            $commande->setProduit($produit->getNom());
+            $commande->setProduit($produit->getId());
             $commandesRepository->add($commande, true);
 
             $email = (new TemplatedEmail())
