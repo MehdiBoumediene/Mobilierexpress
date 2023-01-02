@@ -4,8 +4,8 @@ liip_imagine:
     resolvers:
         default:
             web_path:  
-                web_root: videos_directory
-                cache_prefix: media/cache               
+                web_root: "%kernel.project_dir%/public"
+                cache_prefix: cache               
 
     filter_sets:
 
