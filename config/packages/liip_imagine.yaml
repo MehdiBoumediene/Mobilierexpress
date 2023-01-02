@@ -2,12 +2,10 @@ liip_imagine:
     driver: "gd"
     # configure resolvers
     resolvers:
-
-        # setup the default resolver
         default:
-
-            # use the default web path
-            web_path: "%kernel.project_dir%/public/"
+            web_path:  
+                web_root: %kernel.root_dir%/../public/
+                cache_prefix: media/cache               
 
     filter_sets:
 
