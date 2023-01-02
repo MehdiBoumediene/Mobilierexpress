@@ -114,7 +114,7 @@ class IndexController extends AbstractController
             $email = (new TemplatedEmail())
                 ->from($form->get('Email')->getData())
                 ->to('info@mobilierexpress-dz.com','elm3hdi@gmail.com')
-                ->subject('Nouvelle commande')
+                ->subject('Nouveau prospect')
 
                 // path of the Twig template to render
                 ->htmlTemplate('emails/commande.html.twig')
@@ -125,7 +125,7 @@ class IndexController extends AbstractController
                  'Email' => $form->get('Email')->getData(),
                  'telephone' => $form->get('telephone')->getData(),
                  'adresse' => $form->get('adresse')->getData(),
-                 'produit' => $form->get('produit')->getData(),
+                 
                 ])
                 
             ;
