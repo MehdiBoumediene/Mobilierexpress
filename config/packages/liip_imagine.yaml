@@ -1,5 +1,5 @@
 liip_imagine:
-    driver: "gd"
+   
     # configure resolvers
     resolvers:
         default:
