@@ -5,14 +5,14 @@ liip_imagine:
         default:
             filesystem:
                 data_root:
-                    - "%kernel.project_dir%/public/uploads"
+                    - "%kernel.project_dir%/public"
 
 
     resolvers:
         thumbnails:
             web_path:
                 web_root: "%kernel.project_dir%/public"
-                cache_prefix: "thumbnails"
+                cache_prefix: "uploads/thumbnails"
 
     filter_sets:
 
@@ -24,4 +24,4 @@ liip_imagine:
 
             filters:
 
-                thumbnail: { size: [360, 300], mode: outbound }
+                thumbnail: { size: [360, 240], mode: outbound }
