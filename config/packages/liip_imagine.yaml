@@ -12,7 +12,7 @@ liip_imagine:
         thumbnails:
             web_path:
                 web_root: "%kernel.project_dir%/public"
-                cache_prefix: "uploads/thumbnails"
+                cache_prefix: "thumbnails"
 
     filter_sets:
 
