@@ -7,7 +7,6 @@ liip_imagine:
                 data_root:
                     - "%kernel.project_dir%/public"
 
-
     resolvers:
         thumbnails:
             web_path:
