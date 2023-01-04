@@ -265,7 +265,7 @@
                                 <div class="image">
                                     <a href="#productid{{produit.id}}" class="mfp-open">
                                     {% if produit.files %}
-                                        <img src="{{ asset('/uploads/' ~ produit.files[0].path) }}" alt="{{produit.categorie.nom}} {{produit.nom}}"  class="lazyload" />
+                                        <img data-src="{{ asset('/uploads/' ~ produit.files[0].path) }}" alt="{{produit.categorie.nom}} {{produit.nom}}" width="360"  height="300" class="lazyload" />
                                     {% endif %}
                                     </a>
                                 </div>
@@ -276,7 +276,7 @@
                                        <span style="color:black;">{{ produit.categorie.nom }}</span>
                                  
                                     <br> <br>
-                                 <span style="color:black;position: absolute;margin-top:-10px; color:#c1002c;font-weight: 500;">Prix {{produit.prix}} DA</span>
+                                 <span style="color:black;position: absolute;margin-top: -10px; color:#c1002c;font-weight: 500;">Prix {{produit.prix}} DA</span>
                                  <br>
                                  </div>
                             </div>
