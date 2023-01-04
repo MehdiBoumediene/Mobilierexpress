@@ -24,4 +24,4 @@ liip_imagine:
 
             filters:
 
-                thumbnail: { size: [320, 240], mode: outbound }
+                thumbnail: { size: [360, 300], mode: outbound }
